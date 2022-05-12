@@ -1,0 +1,724 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6B06B8B7-F19E-46B7-8A84-EB1638F32258}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ParkingServis</RootNamespace>
+    <AssemblyName>ParkingServis</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.21.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.21.5.0\lib\net462\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq.EagerFetching, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.EagerFetching.2.2.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.6.0.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataLayer.cs" />
+    <Compile Include="Entiteti\Fizicko_lice.cs" />
+    <Compile Include="Entiteti\Garazno_mesto.cs" />
+    <Compile Include="Entiteti\Javna_garaza.cs" />
+    <Compile Include="Entiteti\Jednokratna.cs" />
+    <Compile Include="Entiteti\Klijent.cs" />
+    <Compile Include="Entiteti\Odnosi_se_na_P.cs" />
+    <Compile Include="Entiteti\Parking.cs" />
+    <Compile Include="Entiteti\Parking_mesto.cs" />
+    <Compile Include="Entiteti\Pravno_lice.cs" />
+    <Compile Include="Entiteti\Pretplatna.cs" />
+    <Compile Include="Entiteti\Telefon.cs" />
+    <Compile Include="Entiteti\Ulicno_mesto.cs" />
+    <Compile Include="Entiteti\Vozilo.cs" />
+    <Compile Include="Entiteti\Zona.cs" />
+    <Compile Include="Entiteti\Zone_pretplatne.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeFizicko_lice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeFizicko_lice.Designer.cs">
+      <DependentUpon>ChangeFizicko_lice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeGarazno_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeGarazno_mesto.Designer.cs">
+      <DependentUpon>ChangeGarazno_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeJavna_garaza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeJavna_garaza.Designer.cs">
+      <DependentUpon>ChangeJavna_garaza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeJednokratna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeJednokratna.Designer.cs">
+      <DependentUpon>ChangeJednokratna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeKlijent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeKlijent.Designer.cs">
+      <DependentUpon>ChangeKlijent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeOdnosi_se_na_P.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeOdnosi_se_na_P.Designer.cs">
+      <DependentUpon>ChangeOdnosi_se_na_P.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeParking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeParking.Designer.cs">
+      <DependentUpon>ChangeParking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeParking_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeParking_mesto.Designer.cs">
+      <DependentUpon>ChangeParking_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangePravno_lice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangePravno_lice.Designer.cs">
+      <DependentUpon>ChangePravno_lice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangePretplatna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangePretplatna.Designer.cs">
+      <DependentUpon>ChangePretplatna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeTelefon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeTelefon.Designer.cs">
+      <DependentUpon>ChangeTelefon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeUlicno_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeUlicno_mesto.Designer.cs">
+      <DependentUpon>ChangeUlicno_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeVozilo.Designer.cs">
+      <DependentUpon>ChangeVozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeZona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeZona.Designer.cs">
+      <DependentUpon>ChangeZona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeZone_pretplatne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeZone_pretplatne.Designer.cs">
+      <DependentUpon>ChangeZone_pretplatne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteFizicko_lice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteFizicko_lice.Designer.cs">
+      <DependentUpon>DeleteFizicko_lice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteGarazno_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteGarazno_mesto.Designer.cs">
+      <DependentUpon>DeleteGarazno_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteJavna_garaza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteJavna_garaza.Designer.cs">
+      <DependentUpon>DeleteJavna_garaza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteJednokratna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteJednokratna.Designer.cs">
+      <DependentUpon>DeleteJednokratna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteKlijent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteKlijent.Designer.cs">
+      <DependentUpon>DeleteKlijent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteOdnosi_se_na_P.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteOdnosi_se_na_P.Designer.cs">
+      <DependentUpon>DeleteOdnosi_se_na_P.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteParking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteParking.Designer.cs">
+      <DependentUpon>DeleteParking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteParking_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteParking_mesto.Designer.cs">
+      <DependentUpon>DeleteParking_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeletePravno_lice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeletePravno_lice.Designer.cs">
+      <DependentUpon>DeletePravno_lice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeletePretplatna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeletePretplatna.Designer.cs">
+      <DependentUpon>DeletePretplatna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteTelefon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteTelefon.Designer.cs">
+      <DependentUpon>DeleteTelefon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteUlicno_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteUlicno_mesto.Designer.cs">
+      <DependentUpon>DeleteUlicno_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteVozilo.Designer.cs">
+      <DependentUpon>DeleteVozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteZona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteZona.Designer.cs">
+      <DependentUpon>DeleteZona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteZone_pretplatne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\DeleteZone_pretplatne.Designer.cs">
+      <DependentUpon>DeleteZone_pretplatne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadFizicko_lice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadFizicko_lice.Designer.cs">
+      <DependentUpon>LoadFizicko_lice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadGarazno_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadGarazno_mesto.Designer.cs">
+      <DependentUpon>LoadGarazno_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadJavna_garaza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadJavna_garaza.Designer.cs">
+      <DependentUpon>LoadJavna_garaza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadJednokratna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadJednokratna.Designer.cs">
+      <DependentUpon>LoadJednokratna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadKlijent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadKlijent.Designer.cs">
+      <DependentUpon>LoadKlijent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadOdnosi_se_na_P.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadOdnosi_se_na_P.Designer.cs">
+      <DependentUpon>LoadOdnosi_se_na_P.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadParking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadParking.Designer.cs">
+      <DependentUpon>LoadParking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadParking_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadParking_mesto.Designer.cs">
+      <DependentUpon>LoadParking_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadPravno_lice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadPravno_lice.Designer.cs">
+      <DependentUpon>LoadPravno_lice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadPretplatna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadPretplatna.Designer.cs">
+      <DependentUpon>LoadPretplatna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadTelefon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadTelefon.Designer.cs">
+      <DependentUpon>LoadTelefon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadUlicno_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadUlicno_mesto.Designer.cs">
+      <DependentUpon>LoadUlicno_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadVozilo.Designer.cs">
+      <DependentUpon>LoadVozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadZona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadZona.Designer.cs">
+      <DependentUpon>LoadZona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadZone_pretplatne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadZone_pretplatne.Designer.cs">
+      <DependentUpon>LoadZone_pretplatne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveFizicko_lice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveFizicko_lice.Designer.cs">
+      <DependentUpon>SaveFizicko_lice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveGarazno_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveGarazno_mesto.Designer.cs">
+      <DependentUpon>SaveGarazno_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveJavna_garaza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveJavna_garaza.Designer.cs">
+      <DependentUpon>SaveJavna_garaza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveJednokratna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveJednokratna.Designer.cs">
+      <DependentUpon>SaveJednokratna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveKlijent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveKlijent.Designer.cs">
+      <DependentUpon>SaveKlijent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveOdnosi_se_na_P.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveOdnosi_se_na_P.Designer.cs">
+      <DependentUpon>SaveOdnosi_se_na_P.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveParking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveParking.Designer.cs">
+      <DependentUpon>SaveParking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveParking_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveParking_mesto.Designer.cs">
+      <DependentUpon>SaveParking_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SavePravno_lice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SavePravno_lice.Designer.cs">
+      <DependentUpon>SavePravno_lice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SavePretplatna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SavePretplatna.Designer.cs">
+      <DependentUpon>SavePretplatna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveTelefon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveTelefon.Designer.cs">
+      <DependentUpon>SaveTelefon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveUlicno_mesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveUlicno_mesto.Designer.cs">
+      <DependentUpon>SaveUlicno_mesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveVozilo.Designer.cs">
+      <DependentUpon>SaveVozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveZona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveZona.Designer.cs">
+      <DependentUpon>SaveZona.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveZone_pretplatne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveZone_pretplatne.Designer.cs">
+      <DependentUpon>SaveZone_pretplatne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mapiranja\Fizicko_lice_MAP.cs" />
+    <Compile Include="Mapiranja\Garazno_mesto_MAP.cs" />
+    <Compile Include="Mapiranja\Javna_Garaza_MAP.cs" />
+    <Compile Include="Mapiranja\Jednokratna_MAP.cs" />
+    <Compile Include="Mapiranja\Klijent_MAP.cs" />
+    <Compile Include="Mapiranja\Odnosi_se_na_P_MAP.cs" />
+    <Compile Include="Mapiranja\Parking_MAP.cs" />
+    <Compile Include="Mapiranja\Parking_mesto_MAP.cs" />
+    <Compile Include="Mapiranja\Pravno_lice_MAP.cs" />
+    <Compile Include="Mapiranja\Pretplatna_MAP.cs" />
+    <Compile Include="Mapiranja\Telefon_MAP.cs" />
+    <Compile Include="Mapiranja\Ulicno_mesto_MAP.cs" />
+    <Compile Include="Mapiranja\Vozilo_MAP.cs" />
+    <Compile Include="Mapiranja\Zona_MAP.cs" />
+    <Compile Include="Mapiranja\Zone_pretplatne.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeFizicko_lice.resx">
+      <DependentUpon>ChangeFizicko_lice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeGarazno_mesto.resx">
+      <DependentUpon>ChangeGarazno_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeJavna_garaza.resx">
+      <DependentUpon>ChangeJavna_garaza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeJednokratna.resx">
+      <DependentUpon>ChangeJednokratna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeKlijent.resx">
+      <DependentUpon>ChangeKlijent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeOdnosi_se_na_P.resx">
+      <DependentUpon>ChangeOdnosi_se_na_P.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeParking.resx">
+      <DependentUpon>ChangeParking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeParking_mesto.resx">
+      <DependentUpon>ChangeParking_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangePravno_lice.resx">
+      <DependentUpon>ChangePravno_lice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangePretplatna.resx">
+      <DependentUpon>ChangePretplatna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeTelefon.resx">
+      <DependentUpon>ChangeTelefon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeUlicno_mesto.resx">
+      <DependentUpon>ChangeUlicno_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeVozilo.resx">
+      <DependentUpon>ChangeVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeZona.resx">
+      <DependentUpon>ChangeZona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeZone_pretplatne.resx">
+      <DependentUpon>ChangeZone_pretplatne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteFizicko_lice.resx">
+      <DependentUpon>DeleteFizicko_lice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteGarazno_mesto.resx">
+      <DependentUpon>DeleteGarazno_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteJavna_garaza.resx">
+      <DependentUpon>DeleteJavna_garaza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteJednokratna.resx">
+      <DependentUpon>DeleteJednokratna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteKlijent.resx">
+      <DependentUpon>DeleteKlijent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteOdnosi_se_na_P.resx">
+      <DependentUpon>DeleteOdnosi_se_na_P.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteParking.resx">
+      <DependentUpon>DeleteParking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteParking_mesto.resx">
+      <DependentUpon>DeleteParking_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeletePravno_lice.resx">
+      <DependentUpon>DeletePravno_lice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeletePretplatna.resx">
+      <DependentUpon>DeletePretplatna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteTelefon.resx">
+      <DependentUpon>DeleteTelefon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteUlicno_mesto.resx">
+      <DependentUpon>DeleteUlicno_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteVozilo.resx">
+      <DependentUpon>DeleteVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteZona.resx">
+      <DependentUpon>DeleteZona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteZone_pretplatne.resx">
+      <DependentUpon>DeleteZone_pretplatne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadFizicko_lice.resx">
+      <DependentUpon>LoadFizicko_lice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadGarazno_mesto.resx">
+      <DependentUpon>LoadGarazno_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadJavna_garaza.resx">
+      <DependentUpon>LoadJavna_garaza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadJednokratna.resx">
+      <DependentUpon>LoadJednokratna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadKlijent.resx">
+      <DependentUpon>LoadKlijent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadOdnosi_se_na_P.resx">
+      <DependentUpon>LoadOdnosi_se_na_P.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadParking.resx">
+      <DependentUpon>LoadParking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadParking_mesto.resx">
+      <DependentUpon>LoadParking_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadPravno_lice.resx">
+      <DependentUpon>LoadPravno_lice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadPretplatna.resx">
+      <DependentUpon>LoadPretplatna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadTelefon.resx">
+      <DependentUpon>LoadTelefon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadUlicno_mesto.resx">
+      <DependentUpon>LoadUlicno_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadVozilo.resx">
+      <DependentUpon>LoadVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadZona.resx">
+      <DependentUpon>LoadZona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadZone_pretplatne.resx">
+      <DependentUpon>LoadZone_pretplatne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveFizicko_lice.resx">
+      <DependentUpon>SaveFizicko_lice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveGarazno_mesto.resx">
+      <DependentUpon>SaveGarazno_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveJavna_garaza.resx">
+      <DependentUpon>SaveJavna_garaza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveJednokratna.resx">
+      <DependentUpon>SaveJednokratna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveKlijent.resx">
+      <DependentUpon>SaveKlijent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveOdnosi_se_na_P.resx">
+      <DependentUpon>SaveOdnosi_se_na_P.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveParking.resx">
+      <DependentUpon>SaveParking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveParking_mesto.resx">
+      <DependentUpon>SaveParking_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SavePravno_lice.resx">
+      <DependentUpon>SavePravno_lice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SavePretplatna.resx">
+      <DependentUpon>SavePretplatna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveTelefon.resx">
+      <DependentUpon>SaveTelefon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveUlicno_mesto.resx">
+      <DependentUpon>SaveUlicno_mesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveVozilo.resx">
+      <DependentUpon>SaveVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveZona.resx">
+      <DependentUpon>SaveZona.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveZone_pretplatne.resx">
+      <DependentUpon>SaveZone_pretplatne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Oracle.DataAccess.Common.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Oracle.ManagedDataAccess.Client.Configuration.Section.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets'))" />
+  </Target>
+</Project>

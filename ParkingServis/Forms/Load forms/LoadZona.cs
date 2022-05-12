@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using NHibernate;
+using ParkingServis.Entiteti;
+
+namespace ParkingServis.Forms.Load_forms
+{
+    public partial class LoadZona : Form
+    {
+        public LoadZona()
+        {
+            InitializeComponent();
+        }
+
+        private void btnLoadZona_Click(object sender, EventArgs e)
+        {
+            try //4
+            {
+                ISession s = DataLayer.GetSession();
+                int id = Int32.Parse(textBox1.Text);
+                Zona z = s.Load<Zona>(id);
+                MessageBox.Show(z.ID.ToString());
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Samo brojevi.");
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ namespace ParkingServis.Entiteti
     public class Pravno_lice : Klijent
     {
         //public virtual int ID { get; protected set; }
-        public virtual int PIB { get; set; }
+        public virtual long PIB { get; set; }
         public virtual String Naziv { get; set; }
         public virtual String Adresa { get; set; }
         public virtual String Ovlasceno_lice { get; set; }

@@ -57,7 +57,7 @@ namespace ParkingServis.Forms.Load_forms
             // 
             this.textBox1.Location = new System.Drawing.Point(306, 49);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.Size = new System.Drawing.Size(206, 26);
             this.textBox1.TabIndex = 3;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
@@ -66,7 +66,7 @@ namespace ParkingServis.Forms.Load_forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(621, 179);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnLoadGaraznoMesto);
             this.Controls.Add(this.label1);

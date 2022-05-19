@@ -52,7 +52,7 @@ namespace ParkingServis.Forms.Save_forms
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(603, 322);
+            this.btnSave.Location = new System.Drawing.Point(668, 244);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 52);
             this.btnSave.TabIndex = 3;
@@ -148,6 +148,7 @@ namespace ParkingServis.Forms.Save_forms
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(201, 26);
             this.txtPrezime.TabIndex = 15;
+            this.txtPrezime.TextChanged += new System.EventHandler(this.txtPrezime_TextChanged);
             // 
             // label6
             // 
@@ -212,7 +213,7 @@ namespace ParkingServis.Forms.Save_forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 346);
             this.Controls.Add(this.txtPrebivaliste);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtVD);

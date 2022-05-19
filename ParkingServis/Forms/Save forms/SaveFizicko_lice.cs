@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ParkingServis.Entiteti;
 using ParkingServis.Mapiranja;
+using NHibernate;
 
 namespace ParkingServis.Forms.Save_forms
 {
@@ -26,16 +27,29 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Fizicko_lice fl = new Fizicko_lice();
-            fl.JMBG = Int32.Parse(txtJMBG.Text);
-            fl.LK = Int32.Parse(txtLK.Text);
-            fl.mesto_izdavanja_lk = txtMestoLK.Text;
-            fl.licno_ime = txtIme.Text;
-            fl.ime_roditelja = txtImeRoditelja.Text;
-            fl.prezime = txtPrezime.Text;
-            fl.adresa = txtAdresa.Text;
-            fl.prebivaliste = txtPrebivaliste.Text;
-            fl.broj_vozacke = Int32.Parse(txtVD.Text);
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Entiteti.Fizicko_lice fl = new Entiteti.Fizicko_lice();
+                fl.JMBG = (long)Convert.ToDouble(txtJMBG.Text);
+                fl.LK = (long)Convert.ToDouble(txtLK.Text);
+                fl.mesto_izdavanja_lk = txtMestoLK.Text;
+                fl.licno_ime = txtIme.Text;
+                fl.ime_roditelja = txtImeRoditelja.Text;
+                fl.prezime = txtPrezime.Text;
+                fl.adresa = txtAdresa.Text;
+                fl.prebivaliste = txtPrebivaliste.Text;
+                fl.broj_vozacke = (long)Convert.ToDouble(txtVD.Text);
+
+                s.SaveOrUpdate(fl);
+
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) //JMBG
@@ -63,6 +77,11 @@ namespace ParkingServis.Forms.Save_forms
                 MessageBox.Show("Samo brojevi.");
                 txtJMBG.Text = txtJMBG.Text.Remove(txtJMBG.Text.Length - 1);
             }
+        }
+
+        private void txtPrezime_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

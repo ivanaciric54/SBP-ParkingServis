@@ -14,5 +14,9 @@ namespace ParkingServis.Entiteti
         {
             
         }
+        public Parking_mesto(String s)
+        {
+            this.zausetost = s;
+        }
     }
 }

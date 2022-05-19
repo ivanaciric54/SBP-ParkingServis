@@ -10,7 +10,7 @@ namespace ParkingServis.Entiteti
     {
         public virtual int ID { get; protected set; }
         public virtual String registracija { get; set; }
-        public virtual int br_saobracajne { get; set; }
+        public virtual long br_saobracajne { get; set; }
         public virtual String proizvodjac { get; set; }
         public virtual String model { get; set; }
         public Vozilo()

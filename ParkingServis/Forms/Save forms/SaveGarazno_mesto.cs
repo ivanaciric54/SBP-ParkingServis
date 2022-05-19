@@ -45,10 +45,7 @@ namespace ParkingServis.Forms.Save_forms
                 Entiteti.Garazno_mesto gm= new Entiteti.Garazno_mesto(txtZauzetost.Text);
                 gm.nivo = Int32.Parse(txtNivo.Text);
                 gm.redni_br = Int32.Parse(txtRedniBroj.Text);
-
-                    String naziv = txtParking.Text;
-                    Parking p = s.Load<Parking>(naziv);
-                    gm.id_parkinga = p.ID;
+                gm.id_parkinga = Int32.Parse(txtParking.Text);
 
                 s.SaveOrUpdate(gm);
 
@@ -58,6 +55,15 @@ namespace ParkingServis.Forms.Save_forms
             catch (Exception ec)
             {
                 MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void txtZauzetost_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtRedniBroj.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Samo brojevi.");
+                txtRedniBroj.Text = txtRedniBroj.Text.Remove(txtRedniBroj.Text.Length - 1);
             }
         }
     }

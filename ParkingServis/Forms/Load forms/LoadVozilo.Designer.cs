@@ -45,7 +45,7 @@ namespace ParkingServis.Forms.Load_forms
             // 
             // btnLoadVozilo
             // 
-            this.btnLoadVozilo.Location = new System.Drawing.Point(245, 104);
+            this.btnLoadVozilo.Location = new System.Drawing.Point(306, 105);
             this.btnLoadVozilo.Name = "btnLoadVozilo";
             this.btnLoadVozilo.Size = new System.Drawing.Size(89, 38);
             this.btnLoadVozilo.TabIndex = 3;
@@ -57,7 +57,7 @@ namespace ParkingServis.Forms.Load_forms
             // 
             this.textBox1.Location = new System.Drawing.Point(245, 53);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.Size = new System.Drawing.Size(150, 26);
             this.textBox1.TabIndex = 4;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -66,7 +66,7 @@ namespace ParkingServis.Forms.Load_forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(549, 197);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnLoadVozilo);
             this.Controls.Add(this.label1);

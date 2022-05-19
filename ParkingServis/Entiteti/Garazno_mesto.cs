@@ -12,9 +12,13 @@ namespace ParkingServis.Entiteti
         public virtual int nivo {get; set; }
         public virtual int redni_br {get; set; }
         public virtual int id_parkinga {get; set; }
-    public Garazno_mesto(String s) : base(s)
+        public Garazno_mesto() : base()
         {
 
+        }
+        public Garazno_mesto(String s):base(s)
+        {
+                
         }
     }
 }

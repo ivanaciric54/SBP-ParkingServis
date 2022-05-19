@@ -36,19 +36,21 @@ namespace ParkingServis.Forms.Delete_forms
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(637, 336);
+            this.btnDelete.Location = new System.Drawing.Point(220, 117);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 52);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Izbriši";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(185, 64);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.Size = new System.Drawing.Size(135, 26);
             this.textBox1.TabIndex = 5;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -64,7 +66,7 @@ namespace ParkingServis.Forms.Delete_forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(535, 255);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDelete);

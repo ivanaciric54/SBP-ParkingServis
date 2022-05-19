@@ -16,5 +16,10 @@ namespace ParkingServis.Forms.Change_forms
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

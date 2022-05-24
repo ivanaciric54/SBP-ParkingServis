@@ -12,9 +12,9 @@ namespace ParkingServis.Entiteti
         public virtual int br_nivoa { get; set; }
         public virtual String montazni_objekat { get; set; }
         public virtual String tip { get; set; }
-        public Javna_garaza() : base()
-        {
+        //public Javna_garaza() : base()
+        //{
 
-        }
+        //}
     }
 }

@@ -30,55 +30,54 @@ namespace ParkingServis.Forms.Delete_forms
         private void InitializeComponent()
         {
             this.btnDelete = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cbVozilaList = new System.Windows.Forms.ComboBox();
+            this.ds = new System.Data.DataSet();
+            ((System.ComponentModel.ISupportInitialize)(this.ds)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(613, 324);
+            this.btnDelete.Location = new System.Drawing.Point(528, 224);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 52);
+            this.btnDelete.Size = new System.Drawing.Size(89, 42);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Izbriši";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // textBox1
+            // cbVozilaList
             // 
-            this.textBox1.Location = new System.Drawing.Point(159, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 5;
+            this.cbVozilaList.FormattingEnabled = true;
+            this.cbVozilaList.Location = new System.Drawing.Point(12, 32);
+            this.cbVozilaList.Name = "cbVozilaList";
+            this.cbVozilaList.Size = new System.Drawing.Size(498, 24);
+            this.cbVozilaList.TabIndex = 6;
             // 
-            // label1
+            // ds
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(58, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Unesi ID:";
+            this.ds.DataSetName = "NewDataSet";
             // 
             // DeleteFizicko_lice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(711, 360);
+            this.Controls.Add(this.cbVozilaList);
             this.Controls.Add(this.btnDelete);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DeleteFizicko_lice";
             this.Text = "Fizicko lice";
+            ((System.ComponentModel.ISupportInitialize)(this.ds)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbVozilaList;
+        private System.Data.DataSet ds;
     }
 }

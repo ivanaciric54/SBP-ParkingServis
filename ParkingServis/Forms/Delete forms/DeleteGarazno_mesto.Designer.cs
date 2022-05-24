@@ -30,55 +30,54 @@ namespace ParkingServis.Forms.Delete_forms
         private void InitializeComponent()
         {
             this.btnDelete = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ds = new System.Data.DataSet();
+            this.cbGMList = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ds)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(618, 335);
+            this.btnDelete.Location = new System.Drawing.Point(549, 268);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 52);
+            this.btnDelete.Size = new System.Drawing.Size(89, 42);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Izbriši";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // textBox1
+            // ds
             // 
-            this.textBox1.Location = new System.Drawing.Point(169, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 5;
+            this.ds.DataSetName = "NewDataSet";
             // 
-            // label1
+            // cbGMList
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Unesi ID:";
+            this.cbGMList.FormattingEnabled = true;
+            this.cbGMList.Location = new System.Drawing.Point(12, 51);
+            this.cbGMList.Name = "cbGMList";
+            this.cbGMList.Size = new System.Drawing.Size(431, 24);
+            this.cbGMList.TabIndex = 3;
             // 
             // DeleteGarazno_mesto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCoral;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(711, 360);
+            this.Controls.Add(this.cbGMList);
             this.Controls.Add(this.btnDelete);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DeleteGarazno_mesto";
             this.Text = "Garažno mesto";
+            ((System.ComponentModel.ISupportInitialize)(this.ds)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Data.DataSet ds;
+        private System.Windows.Forms.ComboBox cbGMList;
     }
 }

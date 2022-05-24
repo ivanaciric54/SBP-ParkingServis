@@ -29,8 +29,8 @@ namespace ParkingServis.Mapiranja
             Map(x => x.prezime, "PREZIME");
             Map(x => x.broj_vozacke, "BROJ_VOZACKE");
 
-            // mapiranja telefona vezanih za ovog klijenta
-            //HasMany(x => x.telefoni).KeyColumn("ID_KLIJENTA").LazyLoad().Cascade.All();
+             //mapiranja telefona vezanih za ovog klijenta
+            HasMany(x => x.telefoni).KeyColumn("ID_KLIJENTA").LazyLoad().Cascade.All();
         }
     }
 }

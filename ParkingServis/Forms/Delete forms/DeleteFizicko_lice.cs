@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NHibernate;
+using ParkingServis.Entiteti;
 
 namespace ParkingServis.Forms.Delete_forms
 {
@@ -23,6 +25,24 @@ namespace ParkingServis.Forms.Delete_forms
             {
                 MessageBox.Show("Samo brojevi.");
                 textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                ISession s = DataLayer.GetSession();
+                Entiteti.Fizicko_lice fl = s.Load<Fizicko_lice>(Int32.Parse(textBox1.Text));
+
+                s.Delete(fl);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
         }
     }

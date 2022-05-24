@@ -21,7 +21,32 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Entiteti.Ulicno_mesto um = new Entiteti.Ulicno_mesto(txtZauzetost.Text);
+                Zona z = s.Load<Zona>(Int32.Parse(txtZ.Text));
+                um.zona = z;
+                um.naziv_ulice = txtUlica.Text;
 
+                s.SaveOrUpdate(um);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        private void txtZ_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtZ.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Samo brojevi.");
+                txtZ.Text = txtZ.Text.Remove(txtZ.Text.Length - 1);
+            }
         }
     }
 }

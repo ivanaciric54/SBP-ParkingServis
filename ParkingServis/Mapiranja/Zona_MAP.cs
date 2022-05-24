@@ -16,7 +16,7 @@ namespace ParkingServis.Mapiranja
             Table("ZONA");
 
             //primarni kljuc
-            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.ID, "ID").GeneratedBy.Assigned();//TriggerIdentity();
 
             // mapiranja parking na ovoj zoni
             HasMany(x => x.parkinzi).KeyColumn("ZONA").LazyLoad().Cascade.All().Inverse();

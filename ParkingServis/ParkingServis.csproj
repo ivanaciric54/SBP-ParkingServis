@@ -304,11 +304,11 @@
     <Compile Include="Forms\Delete forms\DeleteZone_pretplatne.Designer.cs">
       <DependentUpon>DeleteZone_pretplatne.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Delete forms\Zakup.cs">
+    <Compile Include="Forms\Delete forms\DeleteZakup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Delete forms\Zakup.Designer.cs">
-      <DependentUpon>Zakup.cs</DependentUpon>
+    <Compile Include="Forms\Delete forms\DeleteZakup.Designer.cs">
+      <DependentUpon>DeleteZakup.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Load forms\LoadFizicko_lice.cs">
       <SubType>Form</SubType>
@@ -613,8 +613,8 @@
     <EmbeddedResource Include="Forms\Delete forms\DeleteZone_pretplatne.resx">
       <DependentUpon>DeleteZone_pretplatne.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Delete forms\Zakup.resx">
-      <DependentUpon>Zakup.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Delete forms\DeleteZakup.resx">
+      <DependentUpon>DeleteZakup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Load forms\LoadFizicko_lice.resx">
       <DependentUpon>LoadFizicko_lice.cs</DependentUpon>

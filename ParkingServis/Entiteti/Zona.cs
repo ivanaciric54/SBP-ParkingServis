@@ -8,7 +8,7 @@ namespace ParkingServis.Entiteti
 {
     public class Zona
     {
-        public virtual int ID { get; protected set; }
+        public virtual int ID { get; set; }
         public virtual IList<Parking> parkinzi { get; set; }
         public virtual IList<Zone_pretplatne> zone_pretplatne { get; set; }
 

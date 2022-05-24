@@ -1,7 +1,7 @@
 ﻿
 namespace ParkingServis.Forms.Delete_forms
 {
-    partial class Zakup
+    partial class DeleteZakup
     {
         /// <summary>
         /// Required designer variable.
@@ -59,8 +59,9 @@ namespace ParkingServis.Forms.Delete_forms
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Izbriši";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // Zakup
+            // DeleteZakup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -69,7 +70,7 @@ namespace ParkingServis.Forms.Delete_forms
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnDelete);
-            this.Name = "Zakup";
+            this.Name = "DeleteZakup";
             this.Text = "Zakup";
             this.ResumeLayout(false);
             this.PerformLayout();

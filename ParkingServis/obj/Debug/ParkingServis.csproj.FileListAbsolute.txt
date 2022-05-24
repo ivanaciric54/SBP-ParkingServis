@@ -308,5 +308,5 @@ C:\Users\Ivana\Desktop\SBP\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServ
 C:\Users\Ivana\Desktop\SBP\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServis.exe
 C:\Users\Ivana\Desktop\SBP\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServis.pdb
 C:\Users\Ivana\Desktop\SBP\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServis.Forms.Load_forms.LoadZakup.resources
-C:\Users\Ivana\Desktop\SBP\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServis.Forms.Delete_forms.Zakup.resources
 C:\Users\Ivana\Desktop\SBP\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServis.Forms.Save_forms.SaveZakup.resources
+C:\Users\Ivana\Desktop\SBP\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServis.Forms.Delete_forms.DeleteZakup.resources

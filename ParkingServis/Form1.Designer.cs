@@ -92,7 +92,6 @@ namespace ParkingServis
             // 
             this.izborEntitetaBox.FormattingEnabled = true;
             this.izborEntitetaBox.Items.AddRange(new object[] {
-            "Klijent",
             "Pravno lice",
             "Fizičko lice",
             "Pretplatna",

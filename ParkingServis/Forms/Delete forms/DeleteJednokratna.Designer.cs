@@ -42,6 +42,7 @@ namespace ParkingServis.Forms.Delete_forms
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Izbriši";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // textBox1
             // 

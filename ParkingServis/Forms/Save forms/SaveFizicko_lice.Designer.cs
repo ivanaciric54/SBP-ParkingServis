@@ -155,7 +155,7 @@ namespace ParkingServis.Forms.Save_forms
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 270);
+            this.label6.Location = new System.Drawing.Point(21, 270);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 20);
             this.label6.TabIndex = 14;

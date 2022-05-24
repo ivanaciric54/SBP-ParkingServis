@@ -21,7 +21,7 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try // 50  53
+            try 
             {
                 ISession s = DataLayer.GetSession();
                 Entiteti.Jednokratna j = new Entiteti.Jednokratna();

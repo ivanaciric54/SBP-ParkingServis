@@ -18,7 +18,7 @@ namespace ParkingServis.Mapiranja
             //primarni kljuc
             Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
 
-            Map(x => x.zona, "ZONA");
+            References(x => x.zona).Column("Zona").LazyLoad();
             Map(x => x.naziv_ulice, "NAZIV_ULICE");
         }
     }

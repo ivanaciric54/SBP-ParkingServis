@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NHibernate;
+using ParkingServis.Entiteti;
 
 namespace ParkingServis.Forms.Delete_forms
 {

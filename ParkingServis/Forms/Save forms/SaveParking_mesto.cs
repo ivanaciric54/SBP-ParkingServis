@@ -21,7 +21,20 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Entiteti.Parking_mesto pm = new Entiteti.Parking_mesto(txtZ.Text);
 
+                s.SaveOrUpdate(pm);
+
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
         }
     }
 }

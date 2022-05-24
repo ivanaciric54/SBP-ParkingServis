@@ -343,6 +343,12 @@ namespace ParkingServis
                         nova.Show();
                         break;
                     }
+                case "Zakup":
+                    {
+                        Form nova = new LoadZakup();
+                        nova.Show();
+                        break;
+                    }
             }
             
         }
@@ -439,6 +445,12 @@ namespace ParkingServis
                 case "Zone pretplatne":
                     {
                         Form nova = new SaveZone_pretplatne();
+                        nova.Show();
+                        break;
+                    }
+                case "Zakup":
+                    {
+                        Form nova = new SaveZakup();
                         nova.Show();
                         break;
                     }

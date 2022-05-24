@@ -38,6 +38,8 @@ namespace ParkingServis.Forms.Save_forms
             this.txtNaziv = new System.Windows.Forms.TextBox();
             this.txtAdresa = new System.Windows.Forms.TextBox();
             this.txtOvlascenoLice = new System.Windows.Forms.TextBox();
+            this.txtTelefon = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSave
@@ -62,7 +64,7 @@ namespace ParkingServis.Forms.Save_forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 109);
+            this.label2.Location = new System.Drawing.Point(59, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 5;
@@ -71,7 +73,7 @@ namespace ParkingServis.Forms.Save_forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(59, 170);
+            this.label3.Location = new System.Drawing.Point(59, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 20);
             this.label3.TabIndex = 6;
@@ -80,7 +82,7 @@ namespace ParkingServis.Forms.Save_forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(59, 231);
+            this.label4.Location = new System.Drawing.Point(59, 186);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 20);
             this.label4.TabIndex = 7;
@@ -95,24 +97,40 @@ namespace ParkingServis.Forms.Save_forms
             // 
             // txtNaziv
             // 
-            this.txtNaziv.Location = new System.Drawing.Point(211, 103);
+            this.txtNaziv.Location = new System.Drawing.Point(211, 81);
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(240, 26);
             this.txtNaziv.TabIndex = 9;
             // 
             // txtAdresa
             // 
-            this.txtAdresa.Location = new System.Drawing.Point(211, 164);
+            this.txtAdresa.Location = new System.Drawing.Point(211, 135);
             this.txtAdresa.Name = "txtAdresa";
             this.txtAdresa.Size = new System.Drawing.Size(240, 26);
             this.txtAdresa.TabIndex = 10;
             // 
             // txtOvlascenoLice
             // 
-            this.txtOvlascenoLice.Location = new System.Drawing.Point(211, 225);
+            this.txtOvlascenoLice.Location = new System.Drawing.Point(211, 180);
             this.txtOvlascenoLice.Name = "txtOvlascenoLice";
             this.txtOvlascenoLice.Size = new System.Drawing.Size(240, 26);
             this.txtOvlascenoLice.TabIndex = 11;
+            // 
+            // txtTelefon
+            // 
+            this.txtTelefon.Location = new System.Drawing.Point(211, 228);
+            this.txtTelefon.Name = "txtTelefon";
+            this.txtTelefon.Size = new System.Drawing.Size(240, 26);
+            this.txtTelefon.TabIndex = 25;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(59, 228);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 20);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Telefon:";
             // 
             // SavePravno_lice
             // 
@@ -120,6 +138,8 @@ namespace ParkingServis.Forms.Save_forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
             this.ClientSize = new System.Drawing.Size(567, 398);
+            this.Controls.Add(this.txtTelefon);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtOvlascenoLice);
             this.Controls.Add(this.txtAdresa);
             this.Controls.Add(this.txtNaziv);
@@ -131,6 +151,7 @@ namespace ParkingServis.Forms.Save_forms
             this.Controls.Add(this.btnSave);
             this.Name = "SavePravno_lice";
             this.Text = "Pravno lice";
+            this.Load += new System.EventHandler(this.SavePravno_lice_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +168,7 @@ namespace ParkingServis.Forms.Save_forms
         private System.Windows.Forms.TextBox txtNaziv;
         private System.Windows.Forms.TextBox txtAdresa;
         private System.Windows.Forms.TextBox txtOvlascenoLice;
+        private System.Windows.Forms.TextBox txtTelefon;
+        private System.Windows.Forms.Label label10;
     }
 }

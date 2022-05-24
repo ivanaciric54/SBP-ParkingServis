@@ -40,6 +40,7 @@ namespace ParkingServis.Forms.Save_forms
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Zapamti";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // SaveParking
             // 

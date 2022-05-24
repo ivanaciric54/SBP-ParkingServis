@@ -25,8 +25,10 @@ namespace ParkingServis.Forms.Load_forms
             {
                 ISession s = DataLayer.GetSession();
                 int id = Int32.Parse(textBox1.Text);
-                Telefon k = s.Load<Telefon>(id);
-                MessageBox.Show(k.broj);
+                Telefon t = s.Load<Telefon>(id);
+                Klijent k = t.id_klijenta;
+                MessageBox.Show(t.broj);
+                
                 s.Close();
             }
             catch (Exception exc)

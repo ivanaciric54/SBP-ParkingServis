@@ -21,7 +21,7 @@ namespace ParkingServis.Mapiranja
             //ostali atributi
             Map(x => x.nivo, "NIVO");
             Map(x => x.redni_br, "REDNI_BR");
-            Map(x => x.id_parkinga, "ID_PARKINGA");
+            References(x => x.id_parkinga).Column("ID_Parkinga").LazyLoad();
         }
     }
 }

@@ -115,6 +115,7 @@
     <Compile Include="Entiteti\Telefon.cs" />
     <Compile Include="Entiteti\Ulicno_mesto.cs" />
     <Compile Include="Entiteti\Vozilo.cs" />
+    <Compile Include="Entiteti\Zakup.cs" />
     <Compile Include="Entiteti\Zona.cs" />
     <Compile Include="Entiteti\Zone_pretplatne.cs" />
     <Compile Include="Form1.cs">
@@ -303,6 +304,12 @@
     <Compile Include="Forms\Delete forms\DeleteZone_pretplatne.Designer.cs">
       <DependentUpon>DeleteZone_pretplatne.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Delete forms\Zakup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Delete forms\Zakup.Designer.cs">
+      <DependentUpon>Zakup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Load forms\LoadFizicko_lice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +387,12 @@
     </Compile>
     <Compile Include="Forms\Load forms\LoadVozilo.Designer.cs">
       <DependentUpon>LoadVozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadZakup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Load forms\LoadZakup.Designer.cs">
+      <DependentUpon>LoadZakup.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Load forms\LoadZona.cs">
       <SubType>Form</SubType>
@@ -483,6 +496,12 @@
     <Compile Include="Forms\Save forms\SaveZone_pretplatne.Designer.cs">
       <DependentUpon>SaveZone_pretplatne.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Save forms\SaveZakup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Save forms\SaveZakup.Designer.cs">
+      <DependentUpon>SaveZakup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mapiranja\Fizicko_lice_MAP.cs" />
     <Compile Include="Mapiranja\Garazno_mesto_MAP.cs" />
     <Compile Include="Mapiranja\Javna_Garaza_MAP.cs" />
@@ -496,6 +515,7 @@
     <Compile Include="Mapiranja\Telefon_MAP.cs" />
     <Compile Include="Mapiranja\Ulicno_mesto_MAP.cs" />
     <Compile Include="Mapiranja\Vozilo_MAP.cs" />
+    <Compile Include="Mapiranja\Zakup_MAP.cs" />
     <Compile Include="Mapiranja\Zona_MAP.cs" />
     <Compile Include="Mapiranja\Zone_pretplatne.cs" />
     <Compile Include="Program.cs" />
@@ -593,6 +613,9 @@
     <EmbeddedResource Include="Forms\Delete forms\DeleteZone_pretplatne.resx">
       <DependentUpon>DeleteZone_pretplatne.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Delete forms\Zakup.resx">
+      <DependentUpon>Zakup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Load forms\LoadFizicko_lice.resx">
       <DependentUpon>LoadFizicko_lice.cs</DependentUpon>
     </EmbeddedResource>
@@ -631,6 +654,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Load forms\LoadVozilo.resx">
       <DependentUpon>LoadVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Load forms\LoadZakup.resx">
+      <DependentUpon>LoadZakup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Load forms\LoadZona.resx">
       <DependentUpon>LoadZona.cs</DependentUpon>
@@ -682,6 +708,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Save forms\SaveZone_pretplatne.resx">
       <DependentUpon>SaveZone_pretplatne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Save forms\SaveZakup.resx">
+      <DependentUpon>SaveZakup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -32,14 +32,29 @@ namespace ParkingServis.Forms.Save_forms
                 pl.Ovlasceno_lice = txtOvlascenoLice.Text;
 
                 s.SaveOrUpdate(pl);
+                s.Flush();
+
+                Telefon t = new Telefon();
+                t.id_klijenta = s.Load<Klijent>(pl.ID);
+                t.broj = txtTelefon.Text;
+                pl.telefoni.Add(t);
+
+                s.SaveOrUpdate(t);
+
 
                 s.Flush();
                 s.Close();
+
             }
             catch (Exception ec)
             {
                 MessageBox.Show(ec.Message);
             }
+        }
+
+        private void SavePravno_lice_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

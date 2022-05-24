@@ -48,6 +48,8 @@ namespace ParkingServis.Forms.Save_forms
             this.label8 = new System.Windows.Forms.Label();
             this.txtPrebivaliste = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtTelefon = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSave
@@ -208,12 +210,30 @@ namespace ParkingServis.Forms.Save_forms
             this.label9.TabIndex = 20;
             this.label9.Text = "Prebivalište:";
             // 
+            // txtTelefon
+            // 
+            this.txtTelefon.Location = new System.Drawing.Point(545, 179);
+            this.txtTelefon.Name = "txtTelefon";
+            this.txtTelefon.Size = new System.Drawing.Size(223, 26);
+            this.txtTelefon.TabIndex = 23;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(437, 182);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 20);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Telefon:";
+            // 
             // SaveFizicko_lice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
             this.ClientSize = new System.Drawing.Size(800, 346);
+            this.Controls.Add(this.txtTelefon);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.txtPrebivaliste);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtVD);
@@ -262,5 +282,7 @@ namespace ParkingServis.Forms.Save_forms
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtPrebivaliste;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtTelefon;
+        private System.Windows.Forms.Label label10;
     }
 }

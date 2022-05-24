@@ -20,7 +20,8 @@ namespace ParkingServis.Mapiranja
 
             //ostali atributi
             Map(x => x.broj, "BROJ");
-            Map(x => x.id_klijenta, "ID_KLIJENTA");
+            //Map(x => x.id_klijenta, "ID_KLIJENTA");
+            References(x => x.id_klijenta).Column("ID_KLIJENTA").LazyLoad();
         }
     }
 }

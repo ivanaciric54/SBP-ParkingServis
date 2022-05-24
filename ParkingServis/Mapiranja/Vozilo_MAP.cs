@@ -23,6 +23,15 @@ namespace ParkingServis.Mapiranja
             Map(x => x.br_saobracajne, "BR_SAOBRACAJNE");
             Map(x => x.proizvodjac, "PROIZVODJAC");
             Map(x => x.model, "MODEL_VOZILA");
+
+            // mapiranja telefona vezanih za ovog klijenta
+            HasMany(x => x.jednokratne).KeyColumn("ID_VOZILA").LazyLoad().Cascade.All();
+
+            // mapiranja odnosi_se_na_p
+            HasMany(x => x.odnosi_se_na_p).KeyColumn("ID_VOZILA").LazyLoad().Cascade.All().Inverse();
+
+            // mapiranja zakupa
+            HasMany(x => x.zakupi).KeyColumn("ID_VOZILA").LazyLoad().Cascade.All().Inverse();
         }
     }
 }

@@ -18,11 +18,18 @@ namespace ParkingServis.Mapiranja
             //primarni kljuc
             Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
 
-            Map(x => x.id_klijenta, "ID_KLIJENTA");
             Map(x => x.period_vazenja_od, "PERIOD_VAZENJA_OD");
             Map(x => x.period_vazenja_do, "PERIOD_vAZENJA_DO");
             Map(x => x.datum, "DATUM");
 
+            // mapiranja klijenta na ovoj pretplatnoj karti
+            References(x => x.id_klijenta).Column("ID_KlIJENTA").LazyLoad();
+
+            // mapiranja zona_pretplanih
+            HasMany(x => x.zone_pretplatne).KeyColumn("PRETPLATNA_KARTA").LazyLoad().Cascade.All().Inverse();
+
+            // mapiranja odnosi_se_na_p
+            HasMany(x => x.odnosi_se_na_p).KeyColumn("ID_PRETPLATNE").LazyLoad().Cascade.All().Inverse();
         }
     }
 }

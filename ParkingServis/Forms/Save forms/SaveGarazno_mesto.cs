@@ -45,11 +45,16 @@ namespace ParkingServis.Forms.Save_forms
                 Entiteti.Garazno_mesto gm= new Entiteti.Garazno_mesto(txtZauzetost.Text);
                 gm.nivo = Int32.Parse(txtNivo.Text);
                 gm.redni_br = Int32.Parse(txtRedniBroj.Text);
-                gm.id_parkinga = Int32.Parse(txtParking.Text);
-
                 s.SaveOrUpdate(gm);
-
                 s.Flush();
+                Parking p = s.Load<Parking>(Int32.Parse(txtParking.Text));
+                gm.id_parkinga = p;
+                p.garazna_mesta.Add(gm);
+                s.SaveOrUpdate(gm);
+                s.Flush();
+                s.SaveOrUpdate(p);
+                s.Flush();
+
                 s.Close();
             }
             catch (Exception ec)
@@ -59,6 +64,11 @@ namespace ParkingServis.Forms.Save_forms
         }
 
         private void txtZauzetost_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtParking_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(txtRedniBroj.Text, "[^0-9]"))
             {

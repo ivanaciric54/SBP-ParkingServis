@@ -17,6 +17,12 @@ namespace ParkingServis.Mapiranja
 
             //primarni kljuc
             Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
+
+            // mapiranja parking na ovoj zoni
+            HasMany(x => x.parkinzi).KeyColumn("ZONA").LazyLoad().Cascade.All().Inverse();
+
+            // mapiranja zona_pretplanih
+            HasMany(x => x.zone_pretplatne).KeyColumn("ZONA").LazyLoad().Cascade.All().Inverse();
         }
     }
 }

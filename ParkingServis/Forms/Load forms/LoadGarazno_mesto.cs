@@ -25,8 +25,10 @@ namespace ParkingServis.Forms.Load_forms
             {
                 ISession s = DataLayer.GetSession();
                 int id = Int32.Parse(textBox1.Text);
-                Garazno_mesto p = s.Load<Garazno_mesto>(id);
-                MessageBox.Show(p.redni_br.ToString());
+                Garazno_mesto g = s.Load<Garazno_mesto>(id);
+                Parking p = g.id_parkinga;
+                MessageBox.Show(g.redni_br.ToString());
+                MessageBox.Show(p.naziv);
                 s.Close();
             }
             catch (Exception exc)

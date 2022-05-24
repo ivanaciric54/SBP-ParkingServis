@@ -25,8 +25,11 @@ namespace ParkingServis.Forms.Load_forms
             {
                 ISession s = DataLayer.GetSession();
                 int id = Int32.Parse(textBox1.Text);
-                Zone_pretplatne k = s.Load<Zone_pretplatne>(id);
-                MessageBox.Show(k.pretplatna_karta.ToString());
+                Zone_pretplatne zp = s.Load<Zone_pretplatne>(id);
+                Pretplatna p = zp.pretplatna_karta;
+                Zona z = zp.zona;
+                MessageBox.Show(p.ID.ToString());
+                MessageBox.Show(z.ID.ToString());
                 s.Close();
             }
             catch (Exception exc)

@@ -108,6 +108,7 @@ namespace ParkingServis.Forms.Save_forms
             this.txtParking.Name = "txtParking";
             this.txtParking.Size = new System.Drawing.Size(201, 26);
             this.txtParking.TabIndex = 10;
+            this.txtParking.TextChanged += new System.EventHandler(this.txtParking_TextChanged);
             // 
             // txtZauzetost
             // 

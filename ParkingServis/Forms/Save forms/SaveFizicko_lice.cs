@@ -40,8 +40,16 @@ namespace ParkingServis.Forms.Save_forms
                 fl.adresa = txtAdresa.Text;
                 fl.prebivaliste = txtPrebivaliste.Text;
                 fl.broj_vozacke = (long)Convert.ToDouble(txtVD.Text);
-
                 s.SaveOrUpdate(fl);
+                s.Flush();
+
+                Telefon t = new Telefon();
+                t.id_klijenta = s.Load<Klijent>(fl.ID);
+                t.broj = txtTelefon.Text;
+                fl.telefoni.Add(t);
+
+                s.SaveOrUpdate(t);
+                
 
                 s.Flush();
                 s.Close();

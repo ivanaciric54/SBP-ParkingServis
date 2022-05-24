@@ -19,10 +19,11 @@ namespace ParkingServis.Entiteti
         public virtual String adresa { get; set; }
         public virtual String prebivaliste { get; set; }
         public virtual long broj_vozacke { get; set; }
+        //public virtual IList<Telefon> telefoni { get; set; }
 
     public Fizicko_lice() : base()
         {
-            
+            //this.telefoni = new List<Telefon>();
         }
     }
 }

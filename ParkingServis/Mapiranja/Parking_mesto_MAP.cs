@@ -19,6 +19,9 @@ namespace ParkingServis.Mapiranja
             Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
 
             Map(x => x.zausetost, "ZAUZETOST");
+
+            // mapiranja zakupa
+            HasMany(x => x.zakupi).KeyColumn("ID_PARKING_MESTA").LazyLoad().Cascade.All().Inverse();
         }
     }
 }

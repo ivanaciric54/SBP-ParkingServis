@@ -25,8 +25,11 @@ namespace ParkingServis.Forms.Load_forms
             {
                 ISession s = DataLayer.GetSession();
                 int id = Int32.Parse(textBox1.Text);
-                Jednokratna k = s.Load<Jednokratna>(id);
-                MessageBox.Show(k.period_parkiranja_od.ToString() + " - " + k.period_parkiranja_do.ToString());
+                Jednokratna j = s.Load<Jednokratna>(id);
+                MessageBox.Show(j.period_parkiranja_od.ToString() + " - " + j.period_parkiranja_do.ToString());
+                Vozilo v = j.vozilo;
+                Klijent k = j.id_klijenta;
+                MessageBox.Show(v.model);
                 s.Close();
             }
             catch (Exception exc)

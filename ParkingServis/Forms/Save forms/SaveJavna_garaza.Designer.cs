@@ -34,12 +34,13 @@ namespace ParkingServis.Forms.Save_forms
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(624, 337);
+            this.btnSave.Location = new System.Drawing.Point(638, 336);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 52);
-            this.btnSave.TabIndex = 3;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Zapamti";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // SaveJavna_garaza
             // 
@@ -49,7 +50,7 @@ namespace ParkingServis.Forms.Save_forms
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnSave);
             this.Name = "SaveJavna_garaza";
-            this.Text = "Javna garaža";
+            this.Text = "SaveJavna_garaza";
             this.ResumeLayout(false);
 
         }

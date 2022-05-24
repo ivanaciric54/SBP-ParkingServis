@@ -105,6 +105,7 @@ namespace ParkingServis
             "Vozilo",
             "Telefon",
             "Odnosi se na P",
+            "Zakup",
             "Zona",
             "Zone pretplatne"});
             this.izborEntitetaBox.Location = new System.Drawing.Point(253, 54);

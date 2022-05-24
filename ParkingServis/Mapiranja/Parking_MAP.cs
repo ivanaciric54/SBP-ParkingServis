@@ -18,12 +18,17 @@ namespace ParkingServis.Mapiranja
             //primarni kljuc
             Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
 
-            Map(x => x.zona, "ZONA");
             Map(x => x.adresa, "ADRESA");
             Map(x => x.br_mesta, "BR_MESTA");
             Map(x => x.naziv, "NAZIV");
             Map(x => x.radno_vreme_od, "RADNO_VREME_OD");
             Map(x => x.radno_vreme_do, "RADNO_VREME_DO");
+
+            // mapiranja telefona vezanih za ovog klijenta
+            HasMany(x => x.garazna_mesta).KeyColumn("ID_PARKINGA").LazyLoad().Cascade.All();
+
+            // mapiranja zone
+            References(x => x.zona).Column("ZONA").LazyLoad();
         }
     }
 }

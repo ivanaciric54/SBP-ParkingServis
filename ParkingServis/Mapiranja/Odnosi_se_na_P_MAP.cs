@@ -19,8 +19,8 @@ namespace ParkingServis.Mapiranja
             Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
 
             //ostali atributi
-            Map(x => x.id_pretplatne, "ID_PRETPLATNE");
-            Map(x => x.id_vozila, "ID_VOZILA");
+            References(x => x.id_pretplatne).Column("ID_PRETPLATNE").LazyLoad();
+            References(x => x.id_vozila).Column("ID_VOZILA").LazyLoad();
 
         }
     }

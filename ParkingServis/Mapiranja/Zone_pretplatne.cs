@@ -19,8 +19,8 @@ namespace ParkingServis.Mapiranja
             Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
 
             //ostali atributi
-            Map(x => x.zona, "ZONA");
-            Map(x => x.pretplatna_karta, "PRETPLATNA_KARTA");
+            References(x => x.zona).Column("ZONA").LazyLoad();
+            References(x => x.pretplatna_karta).Column("PRETPLATNA_KARTA").LazyLoad(); 
         }
     }
 }

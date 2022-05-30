@@ -35,9 +35,9 @@ namespace ParkingServis.Forms.Change_forms
             this.nivo = new System.Windows.Forms.Label();
             this.redni_br = new System.Windows.Forms.Label();
             this.id_parkinga = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtNivo = new System.Windows.Forms.TextBox();
+            this.txtRedniBroj = new System.Windows.Forms.TextBox();
+            this.txtParking = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnChange
@@ -49,6 +49,7 @@ namespace ParkingServis.Forms.Change_forms
             this.btnChange.TabIndex = 1;
             this.btnChange.Text = "Izmeni";
             this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // textBox1
             // 
@@ -95,26 +96,27 @@ namespace ParkingServis.Forms.Change_forms
             this.id_parkinga.TabIndex = 8;
             this.id_parkinga.Text = "id_parkinga:";
             // 
-            // textBox2
+            // txtNivo
             // 
-            this.textBox2.Location = new System.Drawing.Point(117, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 9;
+            this.txtNivo.Location = new System.Drawing.Point(117, 84);
+            this.txtNivo.Name = "txtNivo";
+            this.txtNivo.Size = new System.Drawing.Size(100, 20);
+            this.txtNivo.TabIndex = 9;
             // 
-            // textBox3
+            // txtRedniBroj
             // 
-            this.textBox3.Location = new System.Drawing.Point(117, 116);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 10;
+            this.txtRedniBroj.Location = new System.Drawing.Point(117, 116);
+            this.txtRedniBroj.Name = "txtRedniBroj";
+            this.txtRedniBroj.Size = new System.Drawing.Size(100, 20);
+            this.txtRedniBroj.TabIndex = 10;
             // 
-            // textBox4
+            // txtParking
             // 
-            this.textBox4.Location = new System.Drawing.Point(117, 147);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 11;
+            this.txtParking.Location = new System.Drawing.Point(117, 147);
+            this.txtParking.Name = "txtParking";
+            this.txtParking.Size = new System.Drawing.Size(100, 20);
+            this.txtParking.TabIndex = 11;
+            this.txtParking.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // ChangeGarazno_mesto
             // 
@@ -122,9 +124,9 @@ namespace ParkingServis.Forms.Change_forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(465, 214);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtParking);
+            this.Controls.Add(this.txtRedniBroj);
+            this.Controls.Add(this.txtNivo);
             this.Controls.Add(this.id_parkinga);
             this.Controls.Add(this.redni_br);
             this.Controls.Add(this.nivo);
@@ -147,8 +149,8 @@ namespace ParkingServis.Forms.Change_forms
         private System.Windows.Forms.Label nivo;
         private System.Windows.Forms.Label redni_br;
         private System.Windows.Forms.Label id_parkinga;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtNivo;
+        private System.Windows.Forms.TextBox txtRedniBroj;
+        private System.Windows.Forms.TextBox txtParking;
     }
 }

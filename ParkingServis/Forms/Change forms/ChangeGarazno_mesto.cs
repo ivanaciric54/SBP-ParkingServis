@@ -27,13 +27,13 @@ namespace ParkingServis.Forms.Change_forms
                 int id = Int32.Parse(textBox1.Text);
                 Entiteti.Garazno_mesto gm = s.Load<Entiteti.Garazno_mesto>(id);
 
-             //   gm.ID = Int32.Parse(textBox1.Text);
+
                 gm.nivo = Int32.Parse(txtNivo.Text);
                 gm.redni_br = Int32.Parse(txtRedniBroj.Text);
                 gm.id_parkinga = Int32.Parse(txtParking.Text);
 
 
-                s.SaveOrUpdate(gm);
+                s.Update(gm);
 
                 s.Flush();
                 s.Close();

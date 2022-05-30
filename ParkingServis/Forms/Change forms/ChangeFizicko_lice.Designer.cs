@@ -41,26 +41,27 @@ namespace ParkingServis.Forms.Change_forms
             this.adresa = new System.Windows.Forms.Label();
             this.prebivaliste = new System.Windows.Forms.Label();
             this.broj_vozacke = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtJMBG = new System.Windows.Forms.TextBox();
+            this.txtMestoLK = new System.Windows.Forms.TextBox();
+            this.txtIme = new System.Windows.Forms.TextBox();
+            this.txtImeRoditelja = new System.Windows.Forms.TextBox();
+            this.txtPrezime = new System.Windows.Forms.TextBox();
+            this.txtPrebivaliste = new System.Windows.Forms.TextBox();
+            this.txtVD = new System.Windows.Forms.TextBox();
+            this.txtAdresa = new System.Windows.Forms.TextBox();
+            this.txtLK = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnChange
             // 
             this.btnChange.Location = new System.Drawing.Point(412, 313);
-            this.btnChange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChange.Margin = new System.Windows.Forms.Padding(2);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(67, 34);
             this.btnChange.TabIndex = 1;
             this.btnChange.Text = "Izmeni";
             this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // label1
             // 
@@ -75,7 +76,7 @@ namespace ParkingServis.Forms.Change_forms
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(222, 22);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 3;
@@ -164,68 +165,68 @@ namespace ParkingServis.Forms.Change_forms
             this.broj_vozacke.TabIndex = 12;
             this.broj_vozacke.Text = "broj_vozacke:";
             // 
-            // textBox2
+            // txtJMBG
             // 
-            this.textBox2.Location = new System.Drawing.Point(222, 52);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 13;
+            this.txtJMBG.Location = new System.Drawing.Point(222, 52);
+            this.txtJMBG.Name = "txtJMBG";
+            this.txtJMBG.Size = new System.Drawing.Size(100, 20);
+            this.txtJMBG.TabIndex = 13;
             // 
-            // textBox3
+            // txtMestoLK
             // 
-            this.textBox3.Location = new System.Drawing.Point(222, 115);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 14;
+            this.txtMestoLK.Location = new System.Drawing.Point(222, 115);
+            this.txtMestoLK.Name = "txtMestoLK";
+            this.txtMestoLK.Size = new System.Drawing.Size(100, 20);
+            this.txtMestoLK.TabIndex = 14;
             // 
-            // textBox4
+            // txtIme
             // 
-            this.textBox4.Location = new System.Drawing.Point(222, 151);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 15;
+            this.txtIme.Location = new System.Drawing.Point(222, 151);
+            this.txtIme.Name = "txtIme";
+            this.txtIme.Size = new System.Drawing.Size(100, 20);
+            this.txtIme.TabIndex = 15;
             // 
-            // textBox5
+            // txtImeRoditelja
             // 
-            this.textBox5.Location = new System.Drawing.Point(222, 189);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 16;
+            this.txtImeRoditelja.Location = new System.Drawing.Point(222, 189);
+            this.txtImeRoditelja.Name = "txtImeRoditelja";
+            this.txtImeRoditelja.Size = new System.Drawing.Size(100, 20);
+            this.txtImeRoditelja.TabIndex = 16;
             // 
-            // textBox6
+            // txtPrezime
             // 
-            this.textBox6.Location = new System.Drawing.Point(222, 225);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 17;
+            this.txtPrezime.Location = new System.Drawing.Point(222, 225);
+            this.txtPrezime.Name = "txtPrezime";
+            this.txtPrezime.Size = new System.Drawing.Size(100, 20);
+            this.txtPrezime.TabIndex = 17;
             // 
-            // textBox8
+            // txtPrebivaliste
             // 
-            this.textBox8.Location = new System.Drawing.Point(222, 291);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 19;
+            this.txtPrebivaliste.Location = new System.Drawing.Point(222, 291);
+            this.txtPrebivaliste.Name = "txtPrebivaliste";
+            this.txtPrebivaliste.Size = new System.Drawing.Size(100, 20);
+            this.txtPrebivaliste.TabIndex = 19;
             // 
-            // textBox9
+            // txtVD
             // 
-            this.textBox9.Location = new System.Drawing.Point(222, 327);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 20;
+            this.txtVD.Location = new System.Drawing.Point(222, 327);
+            this.txtVD.Name = "txtVD";
+            this.txtVD.Size = new System.Drawing.Size(100, 20);
+            this.txtVD.TabIndex = 20;
             // 
-            // textBox10
+            // txtAdresa
             // 
-            this.textBox10.Location = new System.Drawing.Point(222, 259);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 21;
+            this.txtAdresa.Location = new System.Drawing.Point(222, 259);
+            this.txtAdresa.Name = "txtAdresa";
+            this.txtAdresa.Size = new System.Drawing.Size(100, 20);
+            this.txtAdresa.TabIndex = 21;
             // 
-            // textBox11
+            // txtLK
             // 
-            this.textBox11.Location = new System.Drawing.Point(222, 83);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 22;
+            this.txtLK.Location = new System.Drawing.Point(222, 83);
+            this.txtLK.Name = "txtLK";
+            this.txtLK.Size = new System.Drawing.Size(100, 20);
+            this.txtLK.TabIndex = 22;
             // 
             // ChangeFizicko_lice
             // 
@@ -233,15 +234,15 @@ namespace ParkingServis.Forms.Change_forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(533, 388);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtLK);
+            this.Controls.Add(this.txtAdresa);
+            this.Controls.Add(this.txtVD);
+            this.Controls.Add(this.txtPrebivaliste);
+            this.Controls.Add(this.txtPrezime);
+            this.Controls.Add(this.txtImeRoditelja);
+            this.Controls.Add(this.txtIme);
+            this.Controls.Add(this.txtMestoLK);
+            this.Controls.Add(this.txtJMBG);
             this.Controls.Add(this.broj_vozacke);
             this.Controls.Add(this.prebivaliste);
             this.Controls.Add(this.adresa);
@@ -254,7 +255,7 @@ namespace ParkingServis.Forms.Change_forms
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnChange);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ChangeFizicko_lice";
             this.Text = "Fizičko lice";
             this.ResumeLayout(false);
@@ -276,14 +277,14 @@ namespace ParkingServis.Forms.Change_forms
         private System.Windows.Forms.Label adresa;
         private System.Windows.Forms.Label prebivaliste;
         private System.Windows.Forms.Label broj_vozacke;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtJMBG;
+        private System.Windows.Forms.TextBox txtMestoLK;
+        private System.Windows.Forms.TextBox txtIme;
+        private System.Windows.Forms.TextBox txtImeRoditelja;
+        private System.Windows.Forms.TextBox txtPrezime;
+        private System.Windows.Forms.TextBox txtPrebivaliste;
+        private System.Windows.Forms.TextBox txtVD;
+        private System.Windows.Forms.TextBox txtAdresa;
+        private System.Windows.Forms.TextBox txtLK;
     }
 }

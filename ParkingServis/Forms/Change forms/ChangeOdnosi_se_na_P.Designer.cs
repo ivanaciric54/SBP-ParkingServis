@@ -41,17 +41,18 @@ namespace ParkingServis.Forms.Change_forms
             // btnChange
             // 
             this.btnChange.Location = new System.Drawing.Point(324, 96);
-            this.btnChange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnChange.Margin = new System.Windows.Forms.Padding(2);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(67, 34);
             this.btnChange.TabIndex = 1;
             this.btnChange.Text = "Izmeni";
             this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(131, 23);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 5;
@@ -111,7 +112,7 @@ namespace ParkingServis.Forms.Change_forms
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnChange);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ChangeOdnosi_se_na_P";
             this.Text = "Odnosi se na P";
             this.ResumeLayout(false);

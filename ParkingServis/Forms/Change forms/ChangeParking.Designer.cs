@@ -56,6 +56,7 @@ namespace ParkingServis.Forms.Change_forms
             this.btnChange.TabIndex = 1;
             this.btnChange.Text = "Izmeni";
             this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
             // textBox1
             // 

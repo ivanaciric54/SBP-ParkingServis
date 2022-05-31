@@ -48,5 +48,23 @@ namespace ParkingServis.Forms.Change_forms
         {
 
         }
+
+        private void txtNivo_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtNivo.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Samo brojevi.");
+                txtNivo.Text = txtNivo.Text.Remove(txtNivo.Text.Length - 1);
+            }
+        }
+
+        private void txtRedniBroj_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtRedniBroj.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Samo brojevi.");
+                txtRedniBroj.Text = txtRedniBroj.Text.Remove(txtRedniBroj.Text.Length - 1);
+            }
+        }
     }
 }

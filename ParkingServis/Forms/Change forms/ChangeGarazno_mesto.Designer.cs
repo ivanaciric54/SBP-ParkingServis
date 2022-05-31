@@ -102,6 +102,7 @@ namespace ParkingServis.Forms.Change_forms
             this.txtNivo.Name = "txtNivo";
             this.txtNivo.Size = new System.Drawing.Size(100, 20);
             this.txtNivo.TabIndex = 9;
+            this.txtNivo.TextChanged += new System.EventHandler(this.txtNivo_TextChanged);
             // 
             // txtRedniBroj
             // 
@@ -109,6 +110,7 @@ namespace ParkingServis.Forms.Change_forms
             this.txtRedniBroj.Name = "txtRedniBroj";
             this.txtRedniBroj.Size = new System.Drawing.Size(100, 20);
             this.txtRedniBroj.TabIndex = 10;
+            this.txtRedniBroj.TextChanged += new System.EventHandler(this.txtRedniBroj_TextChanged);
             // 
             // txtParking
             // 

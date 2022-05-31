@@ -44,5 +44,14 @@ namespace ParkingServis.Forms.Change_forms
                 MessageBox.Show(exc.Message);
             }
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox2.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Samo brojevi.");
+                textBox2.Text = textBox2.Text.Remove(textBox2.Text.Length - 1);
+            }
+        }
     }
 }

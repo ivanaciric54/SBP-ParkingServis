@@ -65,5 +65,32 @@ namespace ParkingServis.Forms.Change_forms
                 MessageBox.Show(ec.Message);
             }
         }
+
+        private void txtJMBG_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtJMBG.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Samo brojevi.");
+                txtJMBG.Text = txtJMBG.Text.Remove(txtJMBG.Text.Length - 1);
+            }
+        }
+
+        private void txtLK_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtLK.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Samo brojevi.");
+                txtLK.Text = txtLK.Text.Remove(txtLK.Text.Length - 1);
+            }
+        }
+
+        private void txtVD_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtVD.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Samo brojevi.");
+                txtVD.Text = txtVD.Text.Remove(txtVD.Text.Length - 1);
+            }
+        }
     }
 }

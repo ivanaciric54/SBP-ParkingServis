@@ -171,6 +171,7 @@ namespace ParkingServis.Forms.Change_forms
             this.txtJMBG.Name = "txtJMBG";
             this.txtJMBG.Size = new System.Drawing.Size(100, 20);
             this.txtJMBG.TabIndex = 13;
+            this.txtJMBG.TextChanged += new System.EventHandler(this.txtJMBG_TextChanged);
             // 
             // txtMestoLK
             // 
@@ -213,6 +214,7 @@ namespace ParkingServis.Forms.Change_forms
             this.txtVD.Name = "txtVD";
             this.txtVD.Size = new System.Drawing.Size(100, 20);
             this.txtVD.TabIndex = 20;
+            this.txtVD.TextChanged += new System.EventHandler(this.txtVD_TextChanged);
             // 
             // txtAdresa
             // 
@@ -227,6 +229,7 @@ namespace ParkingServis.Forms.Change_forms
             this.txtLK.Name = "txtLK";
             this.txtLK.Size = new System.Drawing.Size(100, 20);
             this.txtLK.TabIndex = 22;
+            this.txtLK.TextChanged += new System.EventHandler(this.txtLK_TextChanged);
             // 
             // ChangeFizicko_lice
             // 

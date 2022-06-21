@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using FluentNHibernate.Mapping;
+using ParkingServis.Entiteti;
+
+namespace ParkingServis.Mapiranja
+{
+    class Parking_mesto_MAP : ClassMap<ParkingServis.Entiteti.Parking_mesto>
+    {
+        public Parking_mesto_MAP()
+        {
+            //ime tabele
+            Table("PARKING_MESTO");
+
+            //primarni kljuc
+            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
+
+            Map(x => x.zausetost, "ZAUZETOST");
+        }
+    }
+}

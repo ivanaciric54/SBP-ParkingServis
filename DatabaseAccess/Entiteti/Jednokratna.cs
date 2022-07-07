@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ParkingServis.Entiteti
+namespace DatabaseAccess.Entiteti
 {
     public class Jednokratna
     {

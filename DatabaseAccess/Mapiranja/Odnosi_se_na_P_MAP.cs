@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentNHibernate.Mapping;
-using ParkingServis.Entiteti;
+using DatabaseAccess.Entiteti;
 
-namespace ParkingServis.Mapiranja
+namespace DatabaseAccess.Mapiranja
 {
-    class Odnosi_se_na_P_MAP : ClassMap<ParkingServis.Entiteti.Odnosi_se_na_P>
+    class Odnosi_se_na_P_MAP : ClassMap<DatabaseAccess.Entiteti.Odnosi_se_na_P>
     {
         public Odnosi_se_na_P_MAP()
         {

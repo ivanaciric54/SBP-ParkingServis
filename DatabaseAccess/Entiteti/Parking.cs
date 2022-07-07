@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ParkingServis.Entiteti
+namespace DatabaseAccess.Entiteti
 {
     public class Parking
     {
@@ -15,9 +15,12 @@ namespace ParkingServis.Entiteti
         public virtual String naziv { get; set; }
         public virtual DateTime radno_vreme_od { get; set; }
         public virtual DateTime radno_vreme_do { get; set; }
+
+        public virtual IList<Garazno_mesto> GaraznaMesta { get; set; }
+
         public Parking()
         {
-
+            GaraznaMesta = new List<Garazno_mesto>();
         }
     }
 }

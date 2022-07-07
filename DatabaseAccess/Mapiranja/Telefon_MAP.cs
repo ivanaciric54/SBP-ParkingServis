@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentNHibernate.Mapping;
-using ParkingServis.Entiteti;
+using DatabaseAccess.Entiteti;
 
-namespace ParkingServis.Mapiranja
+namespace DatabaseAccess.Mapiranja
 {
-    class Telefon_MAP : ClassMap<ParkingServis.Entiteti.Telefon>
+    class Telefon_MAP : ClassMap<DatabaseAccess.Entiteti.Telefon>
     {
         public Telefon_MAP()
         {

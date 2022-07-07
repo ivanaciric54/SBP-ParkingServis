@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentNHibernate.Mapping;
-using ParkingServis.Entiteti;
+using DatabaseAccess.Entiteti;
 
-namespace ParkingServis.Mapiranja
+namespace DatabaseAccess.Mapiranja
 {
-    class Pravno_lice_MAP : ClassMap<ParkingServis.Entiteti.Pravno_lice>
+    class Pravno_lice_MAP : ClassMap<DatabaseAccess.Entiteti.Pravno_lice>
     {
 
         public Pravno_lice_MAP()

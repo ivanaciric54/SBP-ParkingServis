@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NHibernate;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-using ParkingServis.Mapiranja;
+using DatabaseAccess.Mapiranja;
 
 namespace DatabaseAccess
 {

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentNHibernate.Mapping;
-using ParkingServis.Entiteti;
+using DatabaseAccess.Entiteti;
 
-namespace ParkingServis.Mapiranja
+namespace DatabaseAccess.Mapiranja
 {
-    class Jednokratna_MAP : ClassMap<ParkingServis.Entiteti.Jednokratna>
+    class Jednokratna_MAP : ClassMap<DatabaseAccess.Entiteti.Jednokratna>
     {
         public Jednokratna_MAP()
         {

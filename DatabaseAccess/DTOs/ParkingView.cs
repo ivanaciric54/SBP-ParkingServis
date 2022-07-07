@@ -1,9 +1,10 @@
-﻿using ParkingServis.Entiteti;
+﻿using DatabaseAccess.Entiteti;
+using DatabaseAccess.Entiteti;
 using System;
 //using DatabaseAccess.Entiteti;
 using System.Collections.Generic;
 
-namespace ParkingLibrary.DTOs
+namespace DatabaseAccess.DTOs
 {
     public class ParkingView
     {
@@ -16,7 +17,7 @@ namespace ParkingLibrary.DTOs
         public  DateTime radno_vreme_do { get; set; }
 
 
-
+        public virtual IList<Garazno_mestoView> GaraznaMesta { get; set; }
 
 
         public ParkingView()

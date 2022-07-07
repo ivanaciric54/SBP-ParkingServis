@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentNHibernate.Mapping;
-using ParkingServis.Entiteti;
+using DatabaseAccess.Entiteti;
 
-namespace ParkingServis.Mapiranja
+namespace DatabaseAccess.Mapiranja
 {
-    class Parking_MAP : ClassMap<ParkingServis.Entiteti.Parking>
+    class Parking_MAP : ClassMap<DatabaseAccess.Entiteti.Parking>
     {
         public Parking_MAP()
         {
@@ -24,6 +24,8 @@ namespace ParkingServis.Mapiranja
             Map(x => x.naziv, "NAZIV");
             Map(x => x.radno_vreme_od, "RADNO_VREME_OD");
             Map(x => x.radno_vreme_do, "RADNO_VREME_DO");
+
+            HasMany(x => x.GaraznaMesta).KeyColumn("ID_PARKINGA").LazyLoad().Cascade.All();//.Inverse();
         }
     }
 }

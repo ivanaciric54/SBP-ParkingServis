@@ -31,22 +31,9 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ISession s = DataLayer.GetSession();
                 Entiteti.Zona z = new Entiteti.Zona();
                 z.ID = Int32.Parse(txtZona.Text);
-
-                s.SaveOrUpdate(z);
-
-                s.Flush();
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
-
+                DTOManager.dodajZonu(z);
         }
 
 

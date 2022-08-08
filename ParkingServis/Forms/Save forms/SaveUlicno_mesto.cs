@@ -21,23 +21,16 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
                 ISession s = DataLayer.GetSession();
-                Entiteti.Ulicno_mesto um = new Entiteti.Ulicno_mesto(txtZauzetost.Text);
-                Zona z = s.Load<Zona>(Int32.Parse(txtZ.Text));
-                um.zona = z;
+                Entiteti.Ulicno_mesto um = new Entiteti.Ulicno_mesto();
+                int zona = Int32.Parse(txtZ.Text);
                 um.naziv_ulice = txtUlica.Text;
+                String zauzetost = txtZauzetost.Text;
 
-                s.SaveOrUpdate(um);
-                s.Flush();
+            DTOManager.dodajUlicnoMesto(um, zauzetost, zona);
 
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
+                
         }
 
         private void txtZ_TextChanged(object sender, EventArgs e)

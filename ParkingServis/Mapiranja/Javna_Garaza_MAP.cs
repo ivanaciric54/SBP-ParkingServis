@@ -16,7 +16,7 @@ namespace ParkingServis.Mapiranja
             Table("JAVNA_GARAZA");
 
             //primarni kljuc
-            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.ID, "ID").GeneratedBy.Assigned();
 
             Map(x => x.br_nivoa, "BR_NIVOA");
             Map(x => x.montazni_objekat, "MONTAZNI_OBJEKAT");

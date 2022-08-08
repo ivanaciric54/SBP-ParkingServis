@@ -21,30 +21,15 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ISession s = DataLayer.GetSession();
                 Entiteti.Parking p = new Entiteti.Parking();
                 p.br_mesta = Int32.Parse(txtBRMesta.Text);
                 p.naziv = txtNAZIV.Text;
                 p.adresa = txtADRESA.Text;
-                Zona z = s.Load<Zona>(Int32.Parse(txtZONA.Text));
-                p.zona = z;
                 p.radno_vreme_od = new DateTime(2022, 5, 5);
                 p.radno_vreme_do = new DateTime(2022, 5, 5);
 
-                s.SaveOrUpdate(p);
-                s.Flush();
+            DTOManager.dodajParking(p, Int32.Parse(txtZONA.Text));
 
-                z.parkinzi.Add(p);
-                s.SaveOrUpdate(z);
-                s.Flush();
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
         }
 
         private void txtZONA_TextChanged(object sender, EventArgs e)

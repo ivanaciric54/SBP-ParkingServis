@@ -21,40 +21,29 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ISession s = DataLayer.GetSession();
-                Entiteti.Pravno_lice pl = new Entiteti.Pravno_lice();
-         
-                pl.PIB = (long)Convert.ToDouble(txtPIB.Text);
-                pl.Naziv = txtNaziv.Text;
-                pl.Adresa = txtAdresa.Text;
-                pl.Ovlasceno_lice = txtOvlascenoLice.Text;
+            Entiteti.Pravno_lice pl = new Entiteti.Pravno_lice();
+            pl.PIB = (long)Convert.ToDouble(txtPIB.Text);
+            pl.Naziv = txtNaziv.Text;
+            pl.Adresa = txtAdresa.Text;
+            pl.Ovlasceno_lice = txtOvlascenoLice.Text;
 
-                s.SaveOrUpdate(pl);
-                s.Flush();
+            String telefon = txtTelefon.Text;
 
-                Telefon t = new Telefon();
-                t.id_klijenta = s.Load<Klijent>(pl.ID);
-                t.broj = txtTelefon.Text;
-                pl.telefoni.Add(t);
-
-                s.SaveOrUpdate(t);
-
-
-                s.Flush();
-                s.Close();
-
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
+            DTOManager.dodajPravnoLice(pl, telefon);
         }
 
         private void SavePravno_lice_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtPIB_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtPIB.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Samo brojevi.");
+                txtPIB.Text = txtPIB.Text.Remove(txtPIB.Text.Length - 1);
+            }
         }
     }
 }

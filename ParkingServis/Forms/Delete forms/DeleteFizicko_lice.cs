@@ -14,9 +14,16 @@ namespace ParkingServis.Forms.Delete_forms
 {
     public partial class DeleteFizicko_lice : Form
     {
+        private int id;
+
         public DeleteFizicko_lice()
         {
             InitializeComponent();
+        }
+
+        public DeleteFizicko_lice(int id)
+        {
+            this.id = id;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

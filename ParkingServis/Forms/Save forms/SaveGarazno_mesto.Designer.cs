@@ -53,7 +53,7 @@ namespace ParkingServis.Forms.Save_forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(77, 50);
+            this.label1.Location = new System.Drawing.Point(77, 124);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 20);
             this.label1.TabIndex = 4;
@@ -62,7 +62,7 @@ namespace ParkingServis.Forms.Save_forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 119);
+            this.label2.Location = new System.Drawing.Point(77, 193);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 5;
@@ -71,7 +71,7 @@ namespace ParkingServis.Forms.Save_forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(77, 190);
+            this.label3.Location = new System.Drawing.Point(77, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 6;
@@ -88,7 +88,7 @@ namespace ParkingServis.Forms.Save_forms
             // 
             // txtNivo
             // 
-            this.txtNivo.Location = new System.Drawing.Point(190, 44);
+            this.txtNivo.Location = new System.Drawing.Point(190, 118);
             this.txtNivo.Name = "txtNivo";
             this.txtNivo.Size = new System.Drawing.Size(201, 26);
             this.txtNivo.TabIndex = 8;
@@ -96,7 +96,7 @@ namespace ParkingServis.Forms.Save_forms
             // 
             // txtRedniBroj
             // 
-            this.txtRedniBroj.Location = new System.Drawing.Point(190, 113);
+            this.txtRedniBroj.Location = new System.Drawing.Point(190, 187);
             this.txtRedniBroj.Name = "txtRedniBroj";
             this.txtRedniBroj.Size = new System.Drawing.Size(201, 26);
             this.txtRedniBroj.TabIndex = 9;
@@ -104,7 +104,7 @@ namespace ParkingServis.Forms.Save_forms
             // 
             // txtParking
             // 
-            this.txtParking.Location = new System.Drawing.Point(190, 184);
+            this.txtParking.Location = new System.Drawing.Point(190, 43);
             this.txtParking.Name = "txtParking";
             this.txtParking.Size = new System.Drawing.Size(201, 26);
             this.txtParking.TabIndex = 10;

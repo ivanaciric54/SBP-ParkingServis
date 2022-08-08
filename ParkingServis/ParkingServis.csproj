@@ -102,6 +102,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer.cs" />
+    <Compile Include="DTOManager.cs" />
+    <Compile Include="DTOs.cs" />
     <Compile Include="Entiteti\Fizicko_lice.cs" />
     <Compile Include="Entiteti\Garazno_mesto.cs" />
     <Compile Include="Entiteti\Javna_garaza.cs" />
@@ -309,6 +311,72 @@
     </Compile>
     <Compile Include="Forms\Delete forms\DeleteZakup.Designer.cs">
       <DependentUpon>DeleteZakup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Entity forms\FizickoLiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Entity forms\FizickoLiceForm.Designer.cs">
+      <DependentUpon>FizickoLiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Entity forms\GaraznoMestoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Entity forms\GaraznoMestoForm.Designer.cs">
+      <DependentUpon>GaraznoMestoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Entity forms\JavnaGarazaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Entity forms\JavnaGarazaForm.Designer.cs">
+      <DependentUpon>JavnaGarazaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Entity forms\JednokratnaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Entity forms\JednokratnaForm.Designer.cs">
+      <DependentUpon>JednokratnaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Entity forms\ParkingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Entity forms\ParkingForm.Designer.cs">
+      <DependentUpon>ParkingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Entity forms\PravnoLiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Entity forms\PravnoLiceForm.Designer.cs">
+      <DependentUpon>PravnoLiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Entity forms\PretplatnaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Entity forms\PretplatnaForm.Designer.cs">
+      <DependentUpon>PretplatnaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Entity forms\TelefonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Entity forms\TelefonForm.Designer.cs">
+      <DependentUpon>TelefonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Entity forms\UlicnoMestoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Entity forms\UlicnoMestoForm.Designer.cs">
+      <DependentUpon>UlicnoMestoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Entity forms\VoziloForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Entity forms\VoziloForm.Designer.cs">
+      <DependentUpon>VoziloForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Entity forms\ZonaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Entity forms\ZonaForm.Designer.cs">
+      <DependentUpon>ZonaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Load forms\LoadFizicko_lice.cs">
       <SubType>Form</SubType>
@@ -615,6 +683,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Delete forms\DeleteZakup.resx">
       <DependentUpon>DeleteZakup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Entity forms\FizickoLiceForm.resx">
+      <DependentUpon>FizickoLiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Entity forms\GaraznoMestoForm.resx">
+      <DependentUpon>GaraznoMestoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Entity forms\JavnaGarazaForm.resx">
+      <DependentUpon>JavnaGarazaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Entity forms\JednokratnaForm.resx">
+      <DependentUpon>JednokratnaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Entity forms\ParkingForm.resx">
+      <DependentUpon>ParkingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Entity forms\PravnoLiceForm.resx">
+      <DependentUpon>PravnoLiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Entity forms\PretplatnaForm.resx">
+      <DependentUpon>PretplatnaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Entity forms\TelefonForm.resx">
+      <DependentUpon>TelefonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Entity forms\UlicnoMestoForm.resx">
+      <DependentUpon>UlicnoMestoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Entity forms\VoziloForm.resx">
+      <DependentUpon>VoziloForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Entity forms\ZonaForm.resx">
+      <DependentUpon>ZonaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Load forms\LoadFizicko_lice.resx">
       <DependentUpon>LoadFizicko_lice.cs</DependentUpon>

@@ -20,5 +20,17 @@ namespace ParkingServis.Entiteti
         {
             this.garazna_mesta = new List<Garazno_mesto>();
         }
+
+        public Parking(Zona z, int brM, String adresa, String naziv, DateTime vOD, DateTime vDO)
+        {
+            this.zona = z;
+            this.br_mesta = brM;
+            this.adresa = adresa;
+            this.naziv = naziv;
+            this.radno_vreme_od = vOD;
+            this.radno_vreme_do = vDO;
+
+            this.garazna_mesta = new List<Garazno_mesto>();
+        }
     }
 }

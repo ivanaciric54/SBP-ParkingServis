@@ -27,10 +27,8 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ISession s = DataLayer.GetSession();
-                Entiteti.Fizicko_lice fl = new Entiteti.Fizicko_lice();
+
+                Fizicko_lice fl = new Entiteti.Fizicko_lice();
                 fl.JMBG = (long)Convert.ToDouble(txtJMBG.Text);
                 fl.LK = (long)Convert.ToDouble(txtLK.Text);
                 fl.mesto_izdavanja_lk = txtMestoLK.Text;
@@ -40,24 +38,10 @@ namespace ParkingServis.Forms.Save_forms
                 fl.adresa = txtAdresa.Text;
                 fl.prebivaliste = txtPrebivaliste.Text;
                 fl.broj_vozacke = (long)Convert.ToDouble(txtVD.Text);
-                s.SaveOrUpdate(fl);
-                s.Flush();
 
-                Telefon t = new Telefon();
-                t.id_klijenta = s.Load<Klijent>(fl.ID);
-                t.broj = txtTelefon.Text;
-                fl.telefoni.Add(t);
+                String t = txtTelefon.Text;
 
-                s.SaveOrUpdate(t);
-                
-
-                s.Flush();
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
+                DTOManager.dodajFizickoLice(fl, t);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) //JMBG
@@ -71,19 +55,19 @@ namespace ParkingServis.Forms.Save_forms
 
         private void textBox2_TextChanged(object sender, EventArgs e) // LK
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtJMBG.Text, "[^0-9]"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtLK.Text, "[^0-9]"))
             {
                 MessageBox.Show("Samo brojevi.");
-                txtJMBG.Text = txtJMBG.Text.Remove(txtJMBG.Text.Length - 1);
+                txtLK.Text = txtLK.Text.Remove(txtLK.Text.Length - 1);
             }
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e) // vozacka
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(txtJMBG.Text, "[^0-9]"))
+            if (System.Text.RegularExpressions.Regex.IsMatch(txtVD.Text, "[^0-9]"))
             {
                 MessageBox.Show("Samo brojevi.");
-                txtJMBG.Text = txtJMBG.Text.Remove(txtJMBG.Text.Length - 1);
+                txtVD.Text = txtVD.Text.Remove(txtVD.Text.Length - 1);
             }
         }
 

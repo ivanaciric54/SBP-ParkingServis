@@ -13,6 +13,7 @@ using ParkingServis.Forms.Load_forms;
 using ParkingServis.Forms.Save_forms;
 using ParkingServis.Forms.Change_forms;
 using ParkingServis.Forms.Delete_forms;
+using ParkingServis.Forms.Entity_forms;
 
 namespace ParkingServis
 {
@@ -250,407 +251,97 @@ namespace ParkingServis
 
         private void LOAD_Click(object sender, EventArgs e)
         {
-            String item = izborEntitetaBox.Text;
-            switch (item)
-            {
-                case "Klijent":
-                    { 
-                        Form nova = new LoadKlijent();
-                        nova.Show();
-                        break;
-                    }
-                case "Pravno lice":
-                    {
-                        Form nova = new LoadPravno_lice();
-                        nova.Show();
-                        break;
-                    }
-                case "Fizičko lice":
-                    {
-                        Form nova = new LoadFizicko_lice();
-                        nova.Show();
-                        break;
-                    }
-                case "Pretplatna":
-                    {
-                        Form nova = new LoadPretplatna();
-                        nova.Show();
-                        break;
-                    }
-                case "Jednokratna":
-                    {
-                        Form nova = new LoadJednokratna();
-                        nova.Show();
-                        break;
-                    }
-                case "Parking mesto":
-                    {
-                        Form nova = new LoadParking_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Garažno mesto":
-                    {
-                        Form nova = new LoadGarazno_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Ulično mesto":
-                    {
-                        Form nova = new LoadUlicno_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Parking":
-                    {
-                        Form nova = new LoadParking();
-                        nova.Show();
-                        break;
-                    }
-                case "Javna garaža":
-                    {
-                        Form nova = new LoadJavna_garaza();
-                        nova.Show();
-                        break;
-                    }
-                case "Vozilo":
-                    {
-                        Form nova = new LoadVozilo();
-                        nova.Show();
-                        break;
-                    }
-                case "Telefon":
-                    {
-                        Form nova = new LoadTelefon();
-                        nova.Show();
-                        break;
-                    }
-                case "Odnosi se na P":
-                    {
-                        Form nova = new LoadOdnosi_se_na_P();
-                        nova.Show();
-                        break;
-                    }
-                case "Zona":
-                    {
-                        Form nova = new LoadZona();
-                        nova.Show();
-                        break;
-                    }
-                case "Zone pretplatne":
-                    {
-                        Form nova = new LoadZone_pretplatne();
-                        nova.Show();
-                        break;
-                    }
-                case "Zakup":
-                    {
-                        Form nova = new LoadZakup();
-                        nova.Show();
-                        break;
-                    }
-            }
             
         }
 
         private void SAVE_Click(object sender, EventArgs e)
         {
-            String item = izborEntitetaBox.Text;
-            switch (item)
-            {
-                case "Klijent":
-                    {
-                        Form nova = new SaveKlijent();
-                        nova.Show();
-                        break;
-                    }
-                case "Pravno lice":
-                    {
-                        Form nova = new SavePravno_lice();
-                        nova.Show();
-                        break;
-                    }
-                case "Fizičko lice":
-                    {
-                        Form nova = new SaveFizicko_lice();
-                        nova.Show();
-                        break;
-                    }
-                case "Pretplatna":
-                    {
-                        Form nova = new SavePretplatna();
-                        nova.Show();
-                        break;
-                    }
-                case "Jednokratna":
-                    {
-                        Form nova = new SaveJednokratna();
-                        nova.Show();
-                        break;
-                    }
-                case "Parking mesto":
-                    {
-                        Form nova = new SaveParking_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Garažno mesto":
-                    {
-                        Form nova = new SaveGarazno_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Ulično mesto":
-                    {
-                        Form nova = new SaveUlicno_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Parking":
-                    {
-                        Form nova = new SaveParking();
-                        nova.Show();
-                        break;
-                    }
-                case "Javna garaža":
-                    {
-                        Form nova = new SaveJavna_garaza();
-                        nova.Show();
-                        break;
-                    }
-                case "Vozilo":
-                    {
-                        Form nova = new SaveVozilo();
-                        nova.Show();
-                        break;
-                    }
-                case "Telefon":
-                    {
-                        Form nova = new SaveTelefon();
-                        nova.Show();
-                        break;
-                    }
-                case "Odnosi se na P":
-                    {
-                        Form nova = new SaveOdnosi_se_na_P();
-                        nova.Show();
-                        break;
-                    }
-                case "Zona":
-                    {
-                        Form nova = new SaveZona();
-                        nova.Show();
-                        break;
-                    }
-                case "Zone pretplatne":
-                    {
-                        Form nova = new SaveZone_pretplatne();
-                        nova.Show();
-                        break;
-                    }
-                case "Zakup":
-                    {
-                        Form nova = new SaveZakup();
-                        nova.Show();
-                        break;
-                    }
-            }
+
         }
 
         private void CHANGE_Click(object sender, EventArgs e)
         {
-            String item = izborEntitetaBox.Text;
-            switch (item)
-            {
-                case "Klijent":
-                    {
-                        Form nova = new ChangeKlijent();
-                        nova.Show();
-                        break;
-                    }
-                case "Pravno lice":
-                    {
-                        Form nova = new ChangePravno_lice();
-                        nova.Show();
-                        break;
-                    }
-                case "Fizičko lice":
-                    {
-                        Form nova = new ChangeFizicko_lice();
-                        nova.Show();
-                        break;
-                    }
-                case "Pretplatna":
-                    {
-                        Form nova = new ChangePretplatna();
-                        nova.Show();
-                        break;
-                    }
-                case "Jednokratna":
-                    {
-                        Form nova = new ChangeJednokratna();
-                        nova.Show();
-                        break;
-                    }
-                case "Parking mesto":
-                    {
-                        Form nova = new ChangeParking_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Garažno mesto":
-                    {
-                        Form nova = new ChangeGarazno_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Ulično mesto":
-                    {
-                        Form nova = new ChangeUlicno_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Parking":
-                    {
-                        Form nova = new ChangeParking();
-                        nova.Show();
-                        break;
-                    }
-                case "Javna garaža":
-                    {
-                        Form nova = new ChangeJavna_garaza();
-                        nova.Show();
-                        break;
-                    }
-                case "Vozilo":
-                    {
-                        Form nova = new ChangeVozilo();
-                        nova.Show();
-                        break;
-                    }
-                case "Telefon":
-                    {
-                        Form nova = new ChangeTelefon();
-                        nova.Show();
-                        break;
-                    }
-                case "Odnosi se na P":
-                    {
-                        Form nova = new ChangeOdnosi_se_na_P();
-                        nova.Show();
-                        break;
-                    }
-                case "Zona":
-                    {
-                        Form nova = new ChangeZona();
-                        nova.Show();
-                        break;
-                    }
-                case "Zone pretplatne":
-                    {
-                        Form nova = new ChangeZone_pretplatne();
-                        nova.Show();
-                        break;
-                    }
-            }
+            
         }
 
         private void DELETE_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnPrikazi_Click(object sender, EventArgs e)
+        {
             String item = izborEntitetaBox.Text;
             switch (item)
             {
-                case "Klijent":
-                    {
-                        Form nova = new DeleteKlijent();
-                        nova.Show();
-                        break;
-                    }
                 case "Pravno lice":
                     {
-                        Form nova = new DeletePravno_lice();
+                        PravnoLiceForm nova = new PravnoLiceForm();
                         nova.Show();
                         break;
                     }
                 case "Fizičko lice":
                     {
-                        Form nova = new DeleteFizicko_lice();
-                        nova.Show();
-                        break;
-                    }
-                case "Pretplatna":
-                    {
-                        Form nova = new DeletePretplatna();
-                        nova.Show();
-                        break;
-                    }
-                case "Jednokratna":
-                    {
-                        Form nova = new DeleteJednokratna();
-                        nova.Show();
-                        break;
-                    }
-                case "Parking mesto":
-                    {
-                        Form nova = new DeleteParking_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Garažno mesto":
-                    {
-                        Form nova = new DeleteGarazno_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Ulično mesto":
-                    {
-                        Form nova = new DeleteUlicno_mesto();
-                        nova.Show();
-                        break;
-                    }
-                case "Parking":
-                    {
-                        Form nova = new DeleteParking();
-                        nova.Show();
-                        break;
-                    }
-                case "Javna garaža":
-                    {
-                        Form nova = new DeleteJavna_garaza();
-                        nova.Show();
-                        break;
-                    }
-                case "Vozilo":
-                    {
-                        Form nova = new DeleteVozilo();
+                        FizickoLiceForm nova = new FizickoLiceForm();
                         nova.Show();
                         break;
                     }
                 case "Telefon":
                     {
-                        Form nova = new DeleteTelefon();
-                        nova.Show();
-                        break;
-                    }
-                case "Odnosi se na P":
-                    {
-                        Form nova = new DeleteOdnosi_se_na_P();
+                        TelefonForm nova = new TelefonForm();
                         nova.Show();
                         break;
                     }
                 case "Zona":
                     {
-                        Form nova = new DeleteZona();
+                        ZonaForm nova = new ZonaForm();
                         nova.Show();
                         break;
                     }
-                case "Zone pretplatne":
+                case "Parking":
                     {
-                        Form nova = new DeleteZone_pretplatne();
+                        ParkingForm nova = new ParkingForm();
+                        nova.Show();
+                        break;
+                    }
+                case "Javna garaža":
+                    {
+                        JavnaGarazaForm nova = new JavnaGarazaForm();
+                        nova.Show();
+                        break;
+                    }
+                case "Garažno mesto":
+                    {
+                        GaraznoMestoForm nova = new GaraznoMestoForm();
+                        nova.Show();
+                        break;
+                    }
+                case "Ulično mesto":
+                    {
+                        UlicnoMestoForm nova = new UlicnoMestoForm();
+                        nova.Show();
+                        break;
+                    }
+                case "Vozilo":
+                    {
+                        VoziloForm nova = new VoziloForm();
+                        nova.Show();
+                        break;
+                    }
+                case "Pretplatna":
+                    {
+                        PretplatnaForm nova = new PretplatnaForm();
+                        nova.Show();
+                        break;
+                    }
+                case "Jednokratna":
+                    {
+                        JednokratnaForm nova = new JednokratnaForm();
                         nova.Show();
                         break;
                     }
             }
+
         }
     }
 }

@@ -94,6 +94,7 @@ namespace ParkingServis.Forms.Save_forms
             this.txtPIB.Name = "txtPIB";
             this.txtPIB.Size = new System.Drawing.Size(240, 26);
             this.txtPIB.TabIndex = 8;
+            this.txtPIB.TextChanged += new System.EventHandler(this.txtPIB_TextChanged);
             // 
             // txtNaziv
             // 

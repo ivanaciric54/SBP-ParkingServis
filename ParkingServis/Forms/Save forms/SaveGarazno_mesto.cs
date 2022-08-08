@@ -39,27 +39,15 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ISession s = DataLayer.GetSession();
-                Entiteti.Garazno_mesto gm= new Entiteti.Garazno_mesto(txtZauzetost.Text);
-                gm.nivo = Int32.Parse(txtNivo.Text);
-                gm.redni_br = Int32.Parse(txtRedniBroj.Text);
-                Parking p = s.Load<Parking>(Int32.Parse(txtParking.Text));
-                gm.id_parkinga = p; 
-                p.garazna_mesta.Add(gm);               
-                s.SaveOrUpdate(gm);
-                s.Flush();
 
-                s.SaveOrUpdate(p);
-                s.Flush();
+            Entiteti.Garazno_mesto gm= new Entiteti.Garazno_mesto();
+            String zausetost = txtZauzetost.Text;
+            gm.nivo = Int32.Parse(txtNivo.Text);
+            gm.redni_br = Int32.Parse(txtRedniBroj.Text);
+                
+            int p= Int32.Parse(txtParking.Text);
 
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
+            DTOManager.dodajGaraznoMesto(gm, p, zausetost);
         }
 
         private void txtZauzetost_TextChanged(object sender, EventArgs e)

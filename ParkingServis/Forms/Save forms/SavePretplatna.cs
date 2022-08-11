@@ -21,27 +21,7 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ISession s = DataLayer.GetSession();
-                Entiteti.Pretplatna p = new Entiteti.Pretplatna();
-                p.period_vazenja_od = new DateTime(2022, 1, 1);
-                p.period_vazenja_do = new DateTime(2022, 5, 5);
-                p.datum = new DateTime(2022, 1, 1);
-                Klijent k = s.Load<Klijent>(Int32.Parse(txtK.Text));
-                p.id_klijenta = k;
-                k.pretplatne.Add(p);
-
-                s.SaveOrUpdate(k);
-                s.SaveOrUpdate(p);
-
-                s.Flush();
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
+            DTOManager.dodajPretplatnu(DateTime.Parse(txtOD.Text), DateTime.Parse(txtDO.Text), DateTime.Parse(txtDatum.Text), Int32.Parse(txtK.Text), Int32.Parse(txtV.Text), Int32.Parse(txtZona.Text));
         }
 
         private void txtK_TextChanged(object sender, EventArgs e)

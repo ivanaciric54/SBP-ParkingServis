@@ -30,43 +30,64 @@ namespace ParkingServis.Forms.Change_forms
         private void InitializeComponent()
         {
             this.btnChange = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtDO = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtOD = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(629, 339);
+            this.btnChange.Location = new System.Drawing.Point(491, 184);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(100, 52);
             this.btnChange.TabIndex = 1;
             this.btnChange.Text = "Izmeni";
             this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
             // 
-            // textBox1
+            // txtDO
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 5;
+            this.txtDO.Location = new System.Drawing.Point(222, 101);
+            this.txtDO.Name = "txtDO";
+            this.txtDO.Size = new System.Drawing.Size(201, 26);
+            this.txtDO.TabIndex = 23;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Unesi ID:";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(50, 107);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 20);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Do:";
+            // 
+            // txtOD
+            // 
+            this.txtOD.Location = new System.Drawing.Point(222, 56);
+            this.txtOD.Name = "txtOD";
+            this.txtOD.Size = new System.Drawing.Size(201, 26);
+            this.txtOD.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(50, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 20);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Od:";
             // 
             // ChangePretplatna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(685, 285);
+            this.Controls.Add(this.txtDO);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtOD);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnChange);
             this.Name = "ChangePretplatna";
             this.Text = "Pretplatna";
@@ -78,7 +99,9 @@ namespace ParkingServis.Forms.Change_forms
         #endregion
 
         private System.Windows.Forms.Button btnChange;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDO;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtOD;
+        private System.Windows.Forms.Label label3;
     }
 }

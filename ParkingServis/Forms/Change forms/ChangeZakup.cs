@@ -10,29 +10,33 @@ using System.Windows.Forms;
 
 namespace ParkingServis.Forms.Change_forms
 {
-    public partial class ChangeJednokratna : Form
+    public partial class ChangeZakup : Form
     {
         private int id;
 
-        public ChangeJednokratna()
+        public ChangeZakup()
         {
             InitializeComponent();
         }
 
-        public ChangeJednokratna(int id)
+        public ChangeZakup(int id)
         {
             this.id = id;
             InitializeComponent();
         }
 
+        private void licno_ime_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnChange_Click(object sender, EventArgs e)
         {
+            DateTime o = DateTime.Parse(txtOD.Text);
+            DateTime d = DateTime.Parse(txtDO.Text);
             int idd = this.id;
-            DateTime p_od = DateTime.Parse(txtOD.Text);
-            DateTime p_do = DateTime.Parse(txtDO.Text);
-            DateTime kontrola = DateTime.Parse(txtVK.Text);
 
-            DTOManager.izmeniJednokratnu(id, p_od, p_do, kontrola);
+            DTOManager.izmeniZakup(idd, o, d);
         }
     }
 }

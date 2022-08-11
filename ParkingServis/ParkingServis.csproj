@@ -204,6 +204,12 @@
     <Compile Include="Forms\Change forms\ChangeVozilo.Designer.cs">
       <DependentUpon>ChangeVozilo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Change forms\ChangeZakup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ChangeZakup.Designer.cs">
+      <DependentUpon>ChangeZakup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Change forms\ChangeZona.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +221,12 @@
     </Compile>
     <Compile Include="Forms\Change forms\ChangeZone_pretplatne.Designer.cs">
       <DependentUpon>ChangeZone_pretplatne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Change forms\ZakupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Change forms\ZakupForm.Designer.cs">
+      <DependentUpon>ZakupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Delete forms\DeleteFizicko_lice.cs">
       <SubType>Form</SubType>
@@ -630,11 +642,17 @@
     <EmbeddedResource Include="Forms\Change forms\ChangeVozilo.resx">
       <DependentUpon>ChangeVozilo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ChangeZakup.resx">
+      <DependentUpon>ChangeZakup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Change forms\ChangeZona.resx">
       <DependentUpon>ChangeZona.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Change forms\ChangeZone_pretplatne.resx">
       <DependentUpon>ChangeZone_pretplatne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Change forms\ZakupForm.resx">
+      <DependentUpon>ZakupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Delete forms\DeleteFizicko_lice.resx">
       <DependentUpon>DeleteFizicko_lice.cs</DependentUpon>

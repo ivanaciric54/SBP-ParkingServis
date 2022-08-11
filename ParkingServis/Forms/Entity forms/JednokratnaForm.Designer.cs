@@ -31,11 +31,8 @@ namespace ParkingServis.Forms.Entity_forms
         {
             this.listView1 = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Ime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Prezime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Adresa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Prebivalište = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Telefon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Registracija = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.OL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DELETE = new System.Windows.Forms.Button();
             this.CHANGE = new System.Windows.Forms.Button();
             this.SAVE = new System.Windows.Forms.Button();
@@ -46,11 +43,8 @@ namespace ParkingServis.Forms.Entity_forms
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
-            this.Ime,
-            this.Prezime,
-            this.Adresa,
-            this.Prebivalište,
-            this.Telefon});
+            this.Registracija,
+            this.OL});
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(46, 39);
@@ -65,30 +59,15 @@ namespace ParkingServis.Forms.Entity_forms
             this.ID.Text = "ID";
             this.ID.Width = 100;
             // 
-            // Ime
+            // Registracija
             // 
-            this.Ime.Text = "Ime";
-            this.Ime.Width = 150;
+            this.Registracija.Text = "Registracija";
+            this.Registracija.Width = 300;
             // 
-            // Prezime
+            // OL
             // 
-            this.Prezime.Text = "Prezime";
-            this.Prezime.Width = 150;
-            // 
-            // Adresa
-            // 
-            this.Adresa.Text = "Adresa";
-            this.Adresa.Width = 150;
-            // 
-            // Prebivalište
-            // 
-            this.Prebivalište.Text = "Prebivalište";
-            this.Prebivalište.Width = 150;
-            // 
-            // Telefon
-            // 
-            this.Telefon.Text = "Telefon";
-            this.Telefon.Width = 150;
+            this.OL.Text = "Ovlašćeni lice";
+            this.OL.Width = 300;
             // 
             // DELETE
             // 
@@ -101,6 +80,7 @@ namespace ParkingServis.Forms.Entity_forms
             this.DELETE.TabIndex = 32;
             this.DELETE.Text = "Delete";
             this.DELETE.UseVisualStyleBackColor = false;
+            this.DELETE.Click += new System.EventHandler(this.DELETE_Click);
             // 
             // CHANGE
             // 
@@ -113,6 +93,7 @@ namespace ParkingServis.Forms.Entity_forms
             this.CHANGE.TabIndex = 31;
             this.CHANGE.Text = "Change";
             this.CHANGE.UseVisualStyleBackColor = false;
+            this.CHANGE.Click += new System.EventHandler(this.CHANGE_Click);
             // 
             // SAVE
             // 
@@ -125,6 +106,7 @@ namespace ParkingServis.Forms.Entity_forms
             this.SAVE.TabIndex = 30;
             this.SAVE.Text = "Save";
             this.SAVE.UseVisualStyleBackColor = false;
+            this.SAVE.Click += new System.EventHandler(this.SAVE_Click);
             // 
             // LOAD
             // 
@@ -137,6 +119,7 @@ namespace ParkingServis.Forms.Entity_forms
             this.LOAD.TabIndex = 29;
             this.LOAD.Text = "Load";
             this.LOAD.UseVisualStyleBackColor = false;
+            this.LOAD.Click += new System.EventHandler(this.LOAD_Click);
             // 
             // JednokratnaForm
             // 
@@ -150,6 +133,7 @@ namespace ParkingServis.Forms.Entity_forms
             this.Controls.Add(this.LOAD);
             this.Name = "JednokratnaForm";
             this.Text = "JednokratnaForm";
+            this.Load += new System.EventHandler(this.JednokratnaForm_Load);
             this.ResumeLayout(false);
 
         }
@@ -158,11 +142,8 @@ namespace ParkingServis.Forms.Entity_forms
 
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader ID;
-        private System.Windows.Forms.ColumnHeader Ime;
-        private System.Windows.Forms.ColumnHeader Prezime;
-        private System.Windows.Forms.ColumnHeader Adresa;
-        private System.Windows.Forms.ColumnHeader Prebivalište;
-        private System.Windows.Forms.ColumnHeader Telefon;
+        private System.Windows.Forms.ColumnHeader Registracija;
+        private System.Windows.Forms.ColumnHeader OL;
         private System.Windows.Forms.Button DELETE;
         private System.Windows.Forms.Button CHANGE;
         private System.Windows.Forms.Button SAVE;

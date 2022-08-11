@@ -427,3 +427,5 @@ C:\Users\Ivana\Desktop\SBP1\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingSer
 C:\Users\Ivana\Desktop\SBP1\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServis.Forms.Entity_forms.JednokratnaForm.resources
 C:\Users\Ivana\Desktop\SBP1\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServis.Forms.Entity_forms.PretplatnaForm.resources
 C:\Users\Ivana\Desktop\SBP1\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServis.Forms.Entity_forms.VoziloForm.resources
+C:\Users\Ivana\Desktop\SBP1\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServis.Forms.Change_forms.ChangeZakup.resources
+C:\Users\Ivana\Desktop\SBP1\SBP-ParkingServis\ParkingServis\obj\Debug\ParkingServis.Forms.Change_forms.ZakupForm.resources

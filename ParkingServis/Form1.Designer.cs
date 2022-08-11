@@ -41,17 +41,14 @@ namespace ParkingServis
             "Fizičko lice",
             "Pretplatna",
             "Jednokratna",
-            "Parking mesto",
             "Garažno mesto",
             "Ulično mesto",
             "Parking",
             "Javna garaža",
             "Vozilo",
             "Telefon",
-            "Odnosi se na P",
             "Zakup",
-            "Zona",
-            "Zone pretplatne"});
+            "Zona"});
             this.izborEntitetaBox.Location = new System.Drawing.Point(70, 70);
             this.izborEntitetaBox.Name = "izborEntitetaBox";
             this.izborEntitetaBox.Size = new System.Drawing.Size(419, 28);

@@ -227,11 +227,95 @@ namespace ParkingServis
     #endregion UlicnoMesto
 
     #region Vozilo
+    public class VoziloPregled
+    {
+        public int ID;
+        public String registracija;
+        public String odgovornolice;
+        public int parkingmesta;
+
+        public VoziloPregled()
+        {
+
+        }
+
+        public VoziloPregled(int id, String r, String ol, int pm)
+        {
+            this.ID = id;
+            this.registracija = r;
+            this.odgovornolice = ol;
+            this.parkingmesta = pm;
+        }
+    }
     #endregion Vozilo
 
     #region Jednokratna
+    public class JednokratnaPregled
+    {
+        public int ID;
+        public String voziloRegistracija;
+        public String ovlascenolice;
+
+        public JednokratnaPregled()
+        {
+
+        }
+        public JednokratnaPregled(int id, String vr, String ol)
+        {
+            this.ID = id;
+            this.voziloRegistracija = vr;
+            this.ovlascenolice = ol;
+        }
+    }
     #endregion Jednokratna
 
     #region Pretplatna
+    public class PretplatnaPregled
+    {
+        public int ID;
+        public String vaziOD;
+        public String vaziDO;
+        public String zona;
+        public String registracijaVozila;
+        public String ol;
+
+        public PretplatnaPregled()
+        {
+
+        }
+
+        public PretplatnaPregled(int id, String vOD, String vDO, String z, String rv, String ol)
+        {
+            this.ID = id;
+            this.vaziOD = vOD;
+            this.vaziDO = vDO;
+            this.zona = z;
+            this.registracijaVozila = rv;
+            this.ol = ol;
+        }
+    }
     #endregion Pretplatna
+
+    #region ZakupPregled
+    public class ZakupPregled
+    {
+        public int ID;
+        public String registracija;
+        public String ol;
+        public int br_mesta;
+
+        public ZakupPregled()
+        {
+
+        }
+
+        public ZakupPregled(int id, String r, String ol, int brm)
+        {
+            this.ID = id;
+            this.registracija = r;
+            this.ol = ol;
+            this.br_mesta = brm;
+        }
+    }
+    #endregion ZakupPregled
 }

@@ -48,34 +48,16 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try // 11 10 27
-            {
-                ISession s = DataLayer.GetSession();
-                Entiteti.Zakup z = new Entiteti.Zakup();
-                z.datum_ugovora = new DateTime(2022, 2, 2);//Convert.ToDateTime(txtDatum.Text);
-                z.zakup_od = new DateTime(2022, 2, 2);//Convert.ToDateTime(txtOD.Text);
-                z.zakup_do = new DateTime(2022, 2, 2);//Convert.ToDateTime(txtDO.Text);
+            Zakup z = new Zakup();
+            z.zakup_od = DateTime.Parse(txtOD.Text);
+            z.zakup_do = DateTime.Parse(txtDO.Text);
+            z.datum_ugovora = DateTime.Parse(txtDatum.Text);
 
-                Vozilo v = s.Load<Vozilo>(Int32.Parse(txtV.Text));
-                z.vozilo = v;
-                Klijent k = s.Load<Klijent>(Int32.Parse(txtK.Text));
-                z.klijent = k;
-                Parking_mesto pm= s.Load<Parking_mesto>(Int32.Parse(txtPM.Text));
-                z.parking_mesto = pm;
+            int k = Int32.Parse(txtK.Text);
+            int v = Int32.Parse(txtV.Text);
+            int pm = Int32.Parse(txtPM.Text);
 
-                v.zakupi.Add(z);
-                k.zakupi.Add(z);
-                pm.zakupi.Add(z);
-
-                s.SaveOrUpdate(z);
-
-                s.Flush();
-                s.Close();
-            }
-            catch (Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }
+            DTOManager.dodajZakup(z, k, v, pm);
         }
     }
 }

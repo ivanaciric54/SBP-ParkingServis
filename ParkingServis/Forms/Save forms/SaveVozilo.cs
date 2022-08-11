@@ -30,24 +30,13 @@ namespace ParkingServis.Forms.Save_forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ISession s = DataLayer.GetSession();
-                Entiteti.Vozilo v = new Entiteti.Vozilo();
-                v.registracija = txtRegistracija.Text;
-                v.proizvodjac = txtProizvodjac.Text;
-                v.model = txtModelVozila.Text;
-                v.br_saobracajne = (long)Convert.ToDouble(txtSaobracajne.Text);
+            Entiteti.Vozilo v = new Entiteti.Vozilo();
+            v.registracija = txtRegistracija.Text;
+            v.proizvodjac = txtProizvodjac.Text;
+            v.model = txtModelVozila.Text;
+            v.br_saobracajne = (long)Convert.ToDouble(txtSaobracajne.Text);
 
-                s.SaveOrUpdate(v);
-
-                s.Flush();
-                s.Close();
-            }
-            catch(Exception ec)
-            {
-                MessageBox.Show(ec.Message);
-            }  
+            DTOManager.dodajVozilo(v);
         }
     }
 }

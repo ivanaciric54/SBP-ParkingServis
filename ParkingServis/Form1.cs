@@ -340,6 +340,12 @@ namespace ParkingServis
                         nova.Show();
                         break;
                     }
+                case "Zakup":
+                    {
+                        ZakupForm nova = new ZakupForm();
+                        nova.Show();
+                        break;
+                    }
             }
 
         }

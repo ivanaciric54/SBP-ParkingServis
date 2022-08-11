@@ -10,16 +10,16 @@ using System.Windows.Forms;
 using ParkingServis.Forms.Change_forms;
 using ParkingServis.Forms.Save_forms;
 
-namespace ParkingServis.Forms.Entity_forms
+namespace ParkingServis.Forms.Change_forms
 {
-    public partial class PretplatnaForm : Form
+    public partial class ZakupForm : Form
     {
-        public PretplatnaForm()
+        public ZakupForm()
         {
             InitializeComponent();
         }
 
-        private void PretplatnaForm_Load(object sender, EventArgs e)
+        private void ZakupForm_Load(object sender, EventArgs e)
         {
             popuniPodacima();
         }
@@ -27,11 +27,11 @@ namespace ParkingServis.Forms.Entity_forms
         private void popuniPodacima()
         {
             listView1.Items.Clear();
-            List<PretplatnaPregled> podaci = DTOManager.vratiSvePretplatne();
+            List<ZakupPregled> podaci = DTOManager.vratiSveZakupe();
 
-            foreach (PretplatnaPregled m in podaci)
+            foreach (ZakupPregled m in podaci)
             {
-                ListViewItem item = new ListViewItem(new string[] { m.ID.ToString(), m.vaziOD, m.vaziOD, m.zona.ToString(), m.registracijaVozila, m.ol });
+                ListViewItem item = new ListViewItem(new string[] { m.ID.ToString(), m.registracija, m.ol, m.br_mesta.ToString() });
                 listView1.Items.Add(item);
             }
             listView1.Refresh();
@@ -41,44 +41,44 @@ namespace ParkingServis.Forms.Entity_forms
         {
             if (listView1.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Izaberite kartu!");
+                MessageBox.Show("Izaberite zakup!");
                 return;
             }
 
             int id = Int32.Parse(listView1.SelectedItems[0].SubItems[0].Text);
-            String ol = listView1.SelectedItems[0].SubItems[5].Text;
-            DTOManager.vratiPretplatnu(id, ol);
+            String ime = listView1.SelectedItems[0].SubItems[2].Text;
+            DTOManager.vratiZakup(id, ime);
         }
 
         private void SAVE_Click(object sender, EventArgs e)
         {
-            SavePretplatna sp = new SavePretplatna();
-            sp.Show();
+            SaveZakup sz = new SaveZakup();
+            sz.Show();
         }
 
         private void CHANGE_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Izaberite kartu!");
+                MessageBox.Show("Izaberite zakup!");
                 return;
             }
 
             int id = Int32.Parse(listView1.SelectedItems[0].SubItems[0].Text);
-            ChangePretplatna cp = new ChangePretplatna(id);
-            cp.Show();
+            ChangeZakup cz = new ChangeZakup(id);
+            cz.Show();
         }
 
         private void DELETE_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Izaberite kartu!");
+                MessageBox.Show("Izaberite zakup!");
                 return;
             }
 
             int id = Int32.Parse(listView1.SelectedItems[0].SubItems[0].Text);
-            DTOManager.izbrisiPretplatnu(id);
+            DTOManager.izbrisiZakup(id);
         }
     }
 }

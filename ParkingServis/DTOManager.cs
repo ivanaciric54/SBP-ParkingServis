@@ -1137,13 +1137,615 @@ namespace ParkingServis
         #endregion UlicnoMesto
 
         #region Vozilo
+        public static List<VoziloPregled> vratiSvaVozila()
+        {
+            List<VoziloPregled> vozila = new List<VoziloPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Vozilo> svavozila = from o in s.Query<Vozilo>() select o;
+
+                foreach (Vozilo v in svavozila)
+                {
+                    bool existZ = s.Query<Zakup>().Any(x => x.vozilo.ID == v.ID);
+
+                    if (existZ == true)
+                    {
+                        IEnumerable<Zakup> zakupi = from o in s.Query<Zakup>() where o.vozilo.ID == v.ID select o;
+                        List<Zakup> lista_zakupi = zakupi.ToList();
+
+                        bool existFL = s.Query<Fizicko_lice>().Any(x => x.ID == lista_zakupi[0].klijent.ID);
+                        if (existFL == true)
+                        {
+                            Fizicko_lice fl = s.Load<Fizicko_lice>(lista_zakupi[0].klijent.ID);
+                            String ime = fl.licno_ime + " (" + fl.ime_roditelja + ") " + fl.prezime;
+                            vozila.Add(new VoziloPregled(v.ID, v.registracija, ime, zakupi.Count()));
+                        }
+
+                        bool existPL = s.Query<Pravno_lice>().Any(x => x.ID == lista_zakupi[0].klijent.ID);
+                        if (existPL == true)
+                        {
+                            Pravno_lice pl = s.Load<Pravno_lice>(lista_zakupi[0].klijent.ID);
+                            String ime = pl.Naziv;
+                            vozila.Add(new VoziloPregled(v.ID, v.registracija, ime, zakupi.Count()));
+                        }
+
+                    }
+                    else
+                    {
+                        vozila.Add(new VoziloPregled(v.ID, v.registracija, "NEPOZNATO", 0));
+                    }
+                }
+
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+            return vozila;
+
+        }
+
+        public static void vratiVozilo(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Vozilo v = s.Load<Vozilo>(id);
+
+                String ime = "NEPOZNATO";
+
+                bool existZ = s.Query<Zakup>().Any(x => x.vozilo.ID == v.ID);
+
+                if (existZ == true)
+                {
+                    IEnumerable<Zakup> zakupi = from o in s.Query<Zakup>() where o.vozilo.ID==v.ID select o;
+                    List<Zakup> lista_zakupi = zakupi.ToList();
+
+                    bool existFL = s.Query<Fizicko_lice>().Any(x => x.ID == lista_zakupi[0].klijent.ID);
+                    if (existFL == true)
+                    {
+                        Fizicko_lice fl = s.Load<Fizicko_lice>(lista_zakupi[0].klijent.ID);
+                        ime = "";
+                        ime = fl.licno_ime + " (" + fl.ime_roditelja + ") " + fl.prezime;
+                    }
+
+                    bool existPL = s.Query<Pravno_lice>().Any(x => x.ID == lista_zakupi[0].klijent.ID);
+                    if (existPL == true)
+                    {
+                        Pravno_lice pl = s.Load<Pravno_lice>(lista_zakupi[0].klijent.ID);
+                        ime = "";
+                        ime = pl.Naziv;
+                    }
+                    
+                }
+
+                MessageBox.Show("ID: " + v.ID + "\n" +
+                                "Registracija: " + v.registracija + "\n" +
+                                "Proizvođač: " + v.proizvodjac + "\n" +
+                                "Model: " + v.model + "\n" +
+                                "Broj saobraćajne: " + v.br_saobracajne + "\n" +
+                                "Odgovorni za vozilo: " + ime + "\n" );
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void dodajVozilo(Vozilo v)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                s.SaveOrUpdate(v);
+
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void izmeniVozilo(int id, Vozilo vo)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Vozilo v = s.Load<Vozilo>(id);
+                v.registracija = vo.registracija;
+                v.br_saobracajne = vo.br_saobracajne;
+                v.proizvodjac = vo.proizvodjac;
+                v.model = vo.model;
+
+                s.SaveOrUpdate(v);
+
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void izbrisiVozilo(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Vozilo v = s.Load<Vozilo>(id);
+
+                IEnumerable<Zakup> zakupi = from o in s.Query<Zakup>() where o.vozilo.ID == v.ID select o;
+
+                foreach(Zakup z in zakupi)
+                {
+                    s.Delete(z);
+                    s.Flush();
+                }
+
+                s.Delete(v);
+
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
         #endregion Vozilo
 
         #region Jednokratna
+        public static List<JednokratnaPregled> vratiSveJednokratne()
+        {
+            List<JednokratnaPregled> jednokratne = new List<JednokratnaPregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Jednokratna> karte = from o in s.Query<Jednokratna>() select o;
+                String ime = "NEPOZNATO";
+                String registracija = "NEPOZNATA";
+
+                foreach (Jednokratna j in karte)
+                {
+                    bool existFL = s.Query<Fizicko_lice>().Any(x => x.ID == j.id_klijenta.ID);
+                    if (existFL == true)
+                    {
+                        Fizicko_lice fl = s.Load<Fizicko_lice>(j.id_klijenta.ID);
+                        ime = fl.licno_ime + " (" + fl.ime_roditelja + ") " + fl.prezime;
+                    }
+
+                    bool existPL = s.Query<Pravno_lice>().Any(x => x.ID == j.id_klijenta.ID);
+                    if (existPL == true)
+                    {
+                        Pravno_lice pl = s.Load<Pravno_lice>(j.id_klijenta.ID);
+                        ime = pl.Naziv;
+                    }
+
+
+                    bool existV = s.Query<Vozilo>().Any(x => x.ID == j.vozilo.ID);
+                    if (existPL == true)
+                    {
+                        Vozilo v = s.Load<Vozilo>(j.vozilo.ID);
+                        registracija = v.registracija;
+                    }
+
+                    jednokratne.Add(new JednokratnaPregled(j.ID, registracija, ime));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show(ec.Message);
+            }
+
+            return jednokratne;
+        }
+
+        public static void vratiJednokratnu(int id, String ol)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Jednokratna j = s.Load<Jednokratna>(id);
+
+                MessageBox.Show("ID: " + j.ID + "\n" +
+                                "Parkirano od: " + j.period_parkiranja_od + "\n" +
+                                "Parkirano do: " + j.period_parkiranja_do + "\n" +
+                                "Vreme kontrole: " + j.vreme_kontrole + "\n" +
+                                "Registracija vozila: " + j.vozilo.registracija + "\n" +
+                                "Vozilo: " + j.vozilo.proizvodjac + ", " + j.vozilo.model + "\n" +
+                                "Ovlašćeno lice: " + ol + "\n");
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void dodajJednokratnu(DateTime o, DateTime d, DateTime vk, int id_k, int id_v)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Klijent k = s.Load<Klijent>(id_k);
+                Vozilo v = s.Load<Vozilo>(id_v);
+
+                Jednokratna j = new Jednokratna();
+                j.id_klijenta = k;
+                j.vozilo = v;
+                j.period_parkiranja_od = o;
+                j.period_parkiranja_do = d;
+                j.vreme_kontrole = vk;
+
+                s.SaveOrUpdate(j);
+
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void izmeniJednokratnu(int id, DateTime o, DateTime d, DateTime vk)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Jednokratna j = s.Load<Jednokratna>(id);
+                j.period_parkiranja_od = o;
+                j.period_parkiranja_do = d;
+                j.vreme_kontrole = vk;
+
+                s.SaveOrUpdate(j);
+
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void izbrisiJenokratnu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Jednokratna j = s.Load<Jednokratna>(id);
+
+                s.Delete(j);
+
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
         #endregion Jednokratna
 
         #region Pretplatna
+        public static List<PretplatnaPregled> vratiSvePretplatne()
+        {
+            List<PretplatnaPregled> pretplatne = new List<PretplatnaPregled>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                IEnumerable<Pretplatna> karte = from o in s.Query<Pretplatna>() select o;
+
+                foreach (Pretplatna p in karte)
+                {
+                    String ime = "NEPOZNATO";
+                    String registracija = "NEPOZNATA";
+                    String zone = "NEPOZNATE";
+
+                    bool existFL = s.Query<Fizicko_lice>().Any(x => x.ID == p.id_klijenta.ID);
+                    if (existFL == true)
+                    {
+                        Fizicko_lice fl = s.Load<Fizicko_lice>(p.id_klijenta.ID);
+                        ime = fl.licno_ime + " (" + fl.ime_roditelja + ") " + fl.prezime;
+                    }
+
+                    bool existPL = s.Query<Pravno_lice>().Any(x => x.ID == p.id_klijenta.ID);
+                    if (existPL == true)
+                    {
+                        Pravno_lice pl = s.Load<Pravno_lice>(p.id_klijenta.ID);
+                        ime = pl.Naziv;
+                    }
+                    
+
+                    bool existV = s.Query<Odnosi_se_na_P>().Any(x => x.id_pretplatne.ID == p.ID);
+                    if (existV == true)
+                    {
+                        IEnumerable<Odnosi_se_na_P> op = from o in s.Query<Odnosi_se_na_P>() where o.id_pretplatne.ID==p.ID select o;
+                        List<Odnosi_se_na_P> lista_op = op.ToList();
+                        if (lista_op.Count() == 1)
+                        {
+                            registracija = lista_op[0].id_vozila.registracija;
+                        }
+                        else
+                        {
+                            registracija = "VIŠE VOZILA" ;
+                        }
+                        
+                    }
+
+                    bool existP = s.Query<Zone_pretplatne>().Any(x => x.pretplatna_karta.ID == p.ID);
+                    if (existP == true)
+                    {
+                        IEnumerable<Zone_pretplatne> zp = from o in s.Query<Zone_pretplatne>() where o.pretplatna_karta.ID==p.ID select o;
+                        zone = zp.Count().ToString();
+                    }
+
+                    pretplatne.Add(new PretplatnaPregled(p.ID, p.period_vazenja_od.ToString(), p.period_vazenja_do.ToString(), zone, registracija, ime));
+                }
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                System.Windows.Forms.MessageBox.Show(ec.Message);
+            }
+
+            return pretplatne;
+        }
+
+        public static void vratiPretplatnu(int id, String ol)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Pretplatna p = s.Load<Pretplatna>(id);
+                String registracija = "";
+                String zone = "";
+
+                IEnumerable<Odnosi_se_na_P> op = from o in s.Query<Odnosi_se_na_P>() where o.id_pretplatne.ID==p.ID select o;
+                foreach(Odnosi_se_na_P o in op)
+                {
+                    registracija += o.id_vozila.registracija + "\n" + "\t" + "                 ";
+                }
+
+                IEnumerable<Zone_pretplatne> zo = from o in s.Query<Zone_pretplatne>() where o.pretplatna_karta.ID == p.ID select o;
+                foreach (Zone_pretplatne z in zo)
+                {
+                    zone += z.zona.ID + "\n" + "\t" ;
+                }
+
+                MessageBox.Show("ID: " + p.ID + "\n" +
+                                "Važi od: " + p.period_vazenja_od + "\n" +
+                                "Važi do: " + p.period_vazenja_do + "\n" +
+                                "Datum ugovora: " + p.datum + "\n" +
+                                "Registracija vozila: " + registracija + "\n" +
+                                "Zone: " + zone + "\n" +
+                                "Ovlašćeno lice: " + ol + "\n");
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void dodajPretplatnu(DateTime o, DateTime d, DateTime vk, int id_k, int id_v, int zo)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Klijent k = s.Load<Klijent>(id_k);
+                Vozilo v = s.Load<Vozilo>(id_v);
+
+                Pretplatna p = new Pretplatna();
+                p.id_klijenta = k;
+
+                p.period_vazenja_od = o;
+                p.period_vazenja_do = d;
+                p.datum = vk;
+
+                s.SaveOrUpdate(p);
+                s.Flush();
+
+                Odnosi_se_na_P op = new Odnosi_se_na_P();
+                op.id_pretplatne = p;
+                op.id_vozila = v;
+                s.SaveOrUpdate(op);
+                s.Flush();
+
+                Zone_pretplatne zp = new Zone_pretplatne();
+                zp.zona = s.Load<Zona>(zo);
+                zp.pretplatna_karta = p;
+
+                s.SaveOrUpdate(zp);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void izmeniPretplatnu(int id, DateTime o, DateTime d)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Pretplatna p = s.Load<Pretplatna>(id);
+                p.period_vazenja_od = o;
+                p.period_vazenja_do = d;
+           
+                s.SaveOrUpdate(p);
+
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void izbrisiPretplatnu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Pretplatna p = s.Load<Pretplatna>(id);
+
+                IEnumerable<Zone_pretplatne> zo = from o in s.Query<Zone_pretplatne>() where o.pretplatna_karta.ID == p.ID select o;
+                foreach(Zone_pretplatne z in zo)
+                {
+                    s.Delete(z);
+                    s.Flush();
+                }
+
+                IEnumerable<Odnosi_se_na_P> op = from o in s.Query<Odnosi_se_na_P>() where o.id_pretplatne.ID == p.ID select o;
+                foreach (Odnosi_se_na_P o in op)
+                {
+                    s.Delete(o);
+                    s.Flush();
+                }
+
+                s.Delete(p);
+
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
         #endregion Pretplatna
+
+        #region Zakup
+        public static List<ZakupPregled> vratiSveZakupe()
+        {
+            List<ZakupPregled> zakupi = new List<ZakupPregled>();
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+
+
+                s.Close();
+            }
+            catch(Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+            return zakupi;
+        }
+
+        public static void vratiZakup(int id, String ol)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zakup z = s.Load<Zakup>(id);
+
+                MessageBox.Show("ID: " + z.ID + "\n" +
+                "Zakupljeno od: " + z.zakup_od + "\n" +
+                "Zakupljeno do: " + z.zakup_do + "\n" +
+                "Datum ugovora: " + z.datum_ugovora + "\n" +
+                "Registracija vozila: " + z.vozilo.registracija + "\n" +
+                "Broj mesta:" + z.parking_mesto.ID + "\n" +
+                "Ovlašćeno lice: " + ol + "\n");
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void dodajZakup(Zakup z, int k, int v, int pm)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Klijent kl = s.Load<Klijent>(k);
+                Vozilo vo = s.Load<Vozilo>(v);
+                Parking_mesto pme = s.Load<Parking_mesto>(pm);
+
+                z.klijent = kl;
+                z.vozilo = vo;
+                z.parking_mesto = pme;
+
+                s.SaveOrUpdate(z);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void izmeniZakup(int id, DateTime o, DateTime d)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Zakup z = s.Load<Zakup>(id);
+                z.zakup_od = o;
+                z.zakup_do = d;
+
+                s.SaveOrUpdate(z);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+
+        public static void izbrisiZakup(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zakup z = s.Load<Zakup>(id);
+                s.Delete(z);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ec)
+            {
+                MessageBox.Show(ec.Message);
+            }
+        }
+        #endregion Zakup
     }
 }
         

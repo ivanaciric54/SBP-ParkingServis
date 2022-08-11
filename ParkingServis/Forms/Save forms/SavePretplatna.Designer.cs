@@ -38,11 +38,15 @@ namespace ParkingServis.Forms.Save_forms
             this.label2 = new System.Windows.Forms.Label();
             this.txtK = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtZona = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtV = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(321, 231);
+            this.btnSave.Location = new System.Drawing.Point(321, 338);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 52);
             this.btnSave.TabIndex = 3;
@@ -111,16 +115,52 @@ namespace ParkingServis.Forms.Save_forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(48, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
+            this.label1.Size = new System.Drawing.Size(64, 20);
             this.label1.TabIndex = 12;
-            this.label1.Text = "ID klijenta:";
+            this.label1.Text = "Klijenta:";
+            // 
+            // txtZona
+            // 
+            this.txtZona.Location = new System.Drawing.Point(220, 231);
+            this.txtZona.Name = "txtZona";
+            this.txtZona.Size = new System.Drawing.Size(201, 26);
+            this.txtZona.TabIndex = 21;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(48, 237);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 20);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Zona:";
+            // 
+            // txtV
+            // 
+            this.txtV.Location = new System.Drawing.Point(220, 286);
+            this.txtV.Name = "txtV";
+            this.txtV.Size = new System.Drawing.Size(201, 26);
+            this.txtV.TabIndex = 23;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(48, 292);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 20);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Vozilo:";
             // 
             // SavePretplatna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
-            this.ClientSize = new System.Drawing.Size(629, 341);
+            this.ClientSize = new System.Drawing.Size(644, 436);
+            this.Controls.Add(this.txtV);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtZona);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDO);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtOD);
@@ -148,5 +188,9 @@ namespace ParkingServis.Forms.Save_forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtK;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtZona;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtV;
+        private System.Windows.Forms.Label label6;
     }
 }

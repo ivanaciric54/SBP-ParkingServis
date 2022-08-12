@@ -1648,6 +1648,36 @@ namespace ParkingServis
             {
                 ISession s = DataLayer.GetSession();
 
+                IEnumerable<Zakup> svizakupi = from o in s.Query<Zakup>() select o;
+                foreach(Zakup z in svizakupi)
+                {
+                    String ime = "NEPOZNATO";
+                    int br = 0;
+
+                    bool existFL = s.Query<Fizicko_lice>().Any(x => x.ID == z.klijent.ID);
+                    if (existFL == true)
+                    {
+                        Fizicko_lice fl = s.Load<Fizicko_lice>(z.klijent.ID);
+                        ime = fl.licno_ime + " (" + fl.ime_roditelja + ") " + fl.prezime;
+                    }
+
+                    bool existPL = s.Query<Pravno_lice>().Any(x => x.ID == z.klijent.ID);
+                    if (existPL == true)
+                    {
+                        Pravno_lice pl = s.Load<Pravno_lice>(z.klijent.ID);
+                        ime = pl.Naziv;
+                    }
+
+                    foreach(Zakup za in svizakupi)
+                    {
+                        if(z.klijent.ID==za.klijent.ID && z.vozilo.registracija == za.vozilo.registracija)
+                        {
+                            br++;
+                        }
+                    }
+
+                    zakupi.Add(new ZakupPregled(z.ID, z.vozilo.registracija, ime, br));
+                }
 
 
                 s.Close();

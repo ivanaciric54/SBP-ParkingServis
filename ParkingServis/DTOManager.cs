@@ -607,19 +607,12 @@ namespace ParkingServis
                 ISession s = DataLayer.GetSession();
                 IEnumerable<Parking> sviparkinzi = from o in s.Query<Parking>() select o;
 
-                IEnumerable<Javna_garaza> br_jgaraza = from o in s.Query<Javna_garaza>()
-                                                           //where o.zona.ID==z.ID
-                                                       select o;
-
-                List<Parking> lista_parkinga = sviparkinzi.ToList();
-
-                lista_parkinga.RemoveRange(0, br_jgaraza.Count());
-
-                foreach (Parking p in lista_parkinga)
-                {
-                    parkinzi.Add(new ParkingPregled(p.ID, p.zona.ID, p.naziv, p.adresa, p.br_mesta, p.radno_vreme_od.ToString(), p.radno_vreme_do.ToString()));
-                    //parkinzi.Add(new ParkingPregled(1, "AA", "AA", 3, "AA", "AA"));
-                }
+                if(sviparkinzi.Count() > 0)
+                    foreach (Parking p in sviparkinzi.ToList())
+                    {
+                        parkinzi.Add(new ParkingPregled(p.ID, p.zona.ID, p.naziv, p.adresa, p.br_mesta, p.radno_vreme_od.ToString(), p.radno_vreme_do.ToString()));
+                        //parkinzi.Add(new ParkingPregled(1, "AA", "AA", 3, "AA", "AA"));
+                    }
 
                 //MessageBox.Show(lista_parkinga.Count().ToString());
                 s.Close();
@@ -745,31 +738,12 @@ namespace ParkingServis
                 ISession s = DataLayer.GetSession();
                 IEnumerable<Javna_garaza> svegaraze = from o in s.Query<Javna_garaza>() select o;
 
-                List<ParkingPregled> parkinzi = new List<ParkingPregled>();
-
-                IEnumerable<Parking> sviparkinzi = from o in s.Query<Parking>() select o;
-
-                IEnumerable<Javna_garaza> br_jgaraza = from o in s.Query<Javna_garaza>()
-                                                               //where o.zona.ID==z.ID
-                                                           select o;
-
-                List<Parking> lista_parkinga = sviparkinzi.ToList();
-
-                lista_parkinga.RemoveRange(0, br_jgaraza.Count());
-
-                List<Javna_garaza> lista_jgaraza = new List<Javna_garaza>();
-
-
-                for (int i = 0; i < lista_parkinga.Count(); i++)
+               
+                foreach(Javna_garaza jg in svegaraze.ToList())
                 {
-                    foreach(Javna_garaza jg in br_jgaraza)
-                    {
-                        if (jg.ID==lista_parkinga[i].ID)
-                        {
-                            garaze.Add(new JavnaGarazaPregled(lista_parkinga[i].ID, lista_parkinga[i].zona.ID, lista_parkinga[i].naziv, lista_parkinga[i].adresa, lista_parkinga[i].br_mesta, lista_parkinga[i].radno_vreme_od.ToString(), lista_parkinga[i].radno_vreme_do.ToString(), jg.br_nivoa, jg.tip));
-                        }    
-                    }
+                    garaze.Add(new JavnaGarazaPregled(jg.ID, jg.zona.ID, jg.naziv, jg.adresa, jg.br_mesta, jg.radno_vreme_od.ToString(), jg.radno_vreme_do.ToString(), jg.br_nivoa, jg.tip));
                 }
+               
 
                 //MessageBox.Show(lista_parkinga.Count().ToString());
                 s.Close();
@@ -818,15 +792,16 @@ namespace ParkingServis
                 Zona zona = s.Load<Zona>(z);
                 jg.zona = zona;
 
-                Parking p = new Parking(zona, jg.br_mesta, jg.adresa, jg.naziv, jg.radno_vreme_od, jg.radno_vreme_do);
-
-                s.SaveOrUpdate(p);
-                s.Flush();
-
-                jg.ID = p.ID;
+                //Parking p = new Parking(zona, jg.br_mesta, jg.adresa, jg.naziv, jg.radno_vreme_od, jg.radno_vreme_do);
 
                 s.SaveOrUpdate(jg);
                 s.Flush();
+
+                // Prijavljivalo je gresku pri bildu
+                //jg.ID = p.ID;
+
+                //s.SaveOrUpdate(jg);
+                //s.Flush();
 
                 s.Close();
             }

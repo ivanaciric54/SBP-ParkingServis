@@ -13,6 +13,13 @@ namespace ParkingServis
 {
     class DTOManager
     {
+
+        public static void ObjekatNijeNadjen(int id = -1, string tip = "")
+        {
+            string poruka = $"Objekat {(String.IsNullOrEmpty(tip) ? "" : $"{tip} ")}sa datim kljucem {(id > 0 ? $"{id} " : "")}ne postoji" ;
+            MessageBox.Show(poruka, "Iz baze", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
         #region FizickoLice
         public static List<FizickoLicePregled> vratiSvaFizickaLica()
         {
@@ -630,15 +637,20 @@ namespace ParkingServis
             {
                 ISession s = DataLayer.GetSession();
 
-                Parking p = s.Load<Parking>(id);
+                if (s.Query<Parking>().Any(x => x.ID == id))
+                {
+                    Parking p = s.Load<Parking>(id);
+                    MessageBox.Show("ID: " + p.ID + "\n" +
+                        "Zona: " + p.zona.ID + "\n" +
+                        "Naziv: " + p.naziv + "\n" +
+                        "Adresa: " + p.adresa + "\n" +
+                        "Broj mesta: " + p.br_mesta + "\n" +
+                        "Radi od: " + p.radno_vreme_od + "\n" +
+                        "Radi do: " + p.radno_vreme_do + "\n");
+                }
+                else
+                    ObjekatNijeNadjen(id, "Parking");
 
-                MessageBox.Show("ID: " + p.ID + "\n" +
-                    "Zona: " + p.zona.ID + "\n" +
-                    "Naziv: " + p.naziv + "\n" +
-                    "Adresa: " + p.adresa + "\n" +
-                    "Broj mesta: " + p.br_mesta + "\n" +
-                    "Radi od: " + p.radno_vreme_od + "\n" +
-                    "Radi do: " + p.radno_vreme_do + "\n");
 
                 s.Close();
             }
@@ -654,11 +666,16 @@ namespace ParkingServis
             {
                 ISession s = DataLayer.GetSession();
 
-                Zona zona = s.Load<Zona>(z);
-                p.zona = zona;
+                if (s.Query<Zona>().Any(x => x.ID == z))
+                {
+                    Zona zona = s.Load<Zona>(z);
+                    p.zona = zona;
 
-                s.SaveOrUpdate(p);
-                s.Flush();
+                    s.SaveOrUpdate(p);
+                    s.Flush();
+                }
+                else
+                    ObjekatNijeNadjen(z, "Zona");
 
                 s.Close();
             }
@@ -675,18 +692,23 @@ namespace ParkingServis
 
                 ISession s = DataLayer.GetSession();
 
-                Parking p = s.Load<Parking>(id);
+                if (s.Query<Parking>().Any(x => x.ID == id) && s.Query<Zona>().Any(x => x.ID == z))
+                {
+                    Parking p = s.Load<Parking>(id);
 
-                Zona zona = s.Load<Zona>(z);
-                p.zona = zona;
-                p.naziv = pa.naziv;
-                p.adresa = pa.adresa;
-                p.br_mesta = pa.br_mesta;
-                p.radno_vreme_od = pa.radno_vreme_od;
-                p.radno_vreme_do = pa.radno_vreme_do;
+                    Zona zona = s.Load<Zona>(z);
+                    p.zona = zona;
+                    p.naziv = pa.naziv;
+                    p.adresa = pa.adresa;
+                    p.br_mesta = pa.br_mesta;
+                    p.radno_vreme_od = pa.radno_vreme_od;
+                    p.radno_vreme_do = pa.radno_vreme_do;
 
-                s.SaveOrUpdate(p);
-                s.Flush();
+                    s.SaveOrUpdate(p);
+                    s.Flush();
+                }
+                else
+                    ObjekatNijeNadjen();
 
                 s.Close();
             }
@@ -704,20 +726,14 @@ namespace ParkingServis
             {
                 ISession s = DataLayer.GetSession();
 
-                Parking p = s.Load<Parking>(id);
-
-                bool exist = s.Query<Javna_garaza>().Any(x => x.ID == p.ID);
-
-                if (exist==true)
+                if (s.Query<Parking>().Any(x => x.ID == id))
                 {
-                    Javna_garaza j = s.Load<Javna_garaza>(id);
-                    s.Delete(j);
+                    Parking p = s.Load<Parking>(id);
+                    s.Delete(p);
                     s.Flush();
                 }
-                
-
-                s.Delete(p);
-                s.Flush();
+                else
+                    ObjekatNijeNadjen(id, "Parking");
 
                 s.Close();
             }
@@ -737,7 +753,6 @@ namespace ParkingServis
             {
                 ISession s = DataLayer.GetSession();
                 IEnumerable<Javna_garaza> svegaraze = from o in s.Query<Javna_garaza>() select o;
-
                
                 foreach(Javna_garaza jg in svegaraze.ToList())
                 {
@@ -761,19 +776,23 @@ namespace ParkingServis
             {
                 ISession s = DataLayer.GetSession();
 
-                Parking p = s.Load<Parking>(id);
-                Javna_garaza jg = s.Load<Javna_garaza>(id);
-
-                MessageBox.Show("ID: " + p.ID + "\n" +
-                                "Zona: " + p.zona.ID + "\n" +
-                                "Naziv: " + p.naziv + "\n" +
-                                "Adresa:" + p.adresa + "\n" +
-                                "Broj mesta: " + p.br_mesta + "\n" +
-                                "Radio od: " + p.radno_vreme_od + "\n" +
-                                "Radi do: " + p.radno_vreme_do + "\n" +
+                if (s.Query<Javna_garaza>().Any(x => x.ID == id))
+                {
+                    Javna_garaza jg = s.Load<Javna_garaza>(id);
+                    MessageBox.Show("ID: " + jg.ID + "\n" +
+                                "Zona: " + jg.zona.ID + "\n" +
+                                "Naziv: " + jg.naziv + "\n" +
+                                "Adresa:" + jg.adresa + "\n" +
+                                "Broj mesta: " + jg.br_mesta + "\n" +
+                                "Radio od: " + jg.radno_vreme_od + "\n" +
+                                "Radi do: " + jg.radno_vreme_do + "\n" +
                                 "Broj nivoa: " + jg.br_nivoa + "\n" +
                                 "Montažni objekat: " + jg.montazni_objekat + "\n" +
-                                "Tip: " + jg.tip + "\n" );
+                                "Tip: " + jg.tip + "\n");
+                }
+                else
+                    ObjekatNijeNadjen();
+
 
                 s.Close();
             }
@@ -788,20 +807,15 @@ namespace ParkingServis
             try
             {
                 ISession s = DataLayer.GetSession();
-
-                Zona zona = s.Load<Zona>(z);
-                jg.zona = zona;
-
-                //Parking p = new Parking(zona, jg.br_mesta, jg.adresa, jg.naziv, jg.radno_vreme_od, jg.radno_vreme_do);
-
-                s.SaveOrUpdate(jg);
-                s.Flush();
-
-                // Prijavljivalo je gresku pri bildu
-                //jg.ID = p.ID;
-
-                //s.SaveOrUpdate(jg);
-                //s.Flush();
+                if (s.Query<Zona>().Any(x => x.ID == z))
+                {
+                    Zona zona = s.Load<Zona>(z);
+                    jg.zona = zona;
+                    s.SaveOrUpdate(jg);
+                    s.Flush();
+                }
+                else
+                    ObjekatNijeNadjen(z, "zona");
 
                 s.Close();
             }
@@ -817,26 +831,26 @@ namespace ParkingServis
             {
                 ISession s = DataLayer.GetSession();
 
-                Zona zona = s.Load<Zona>(z);
+                if (s.Query<Zona>().Any(x => x.ID == z) && s.Query<Javna_garaza>().Any(x => x.ID == id) )
+                {
+                    Zona zona = s.Load<Zona>(z);
+                    Javna_garaza j = s.Load<Javna_garaza>(id);
 
-                Parking p = s.Load<Parking>(id);
-                p.zona = zona;
-                p.adresa = jg.adresa;
-                p.br_mesta = jg.br_mesta;
-                p.naziv = jg.naziv;
-                p.radno_vreme_od = jg.radno_vreme_od;
-                p.radno_vreme_do = jg.radno_vreme_do;
+                    j.zona = zona;
+                    j.adresa = jg.adresa;
+                    j.br_mesta = jg.br_mesta;
+                    j.naziv = jg.naziv;
+                    j.radno_vreme_od = jg.radno_vreme_od;
+                    j.radno_vreme_do = jg.radno_vreme_do;
+                    j.br_nivoa = jg.br_nivoa;
+                    j.montazni_objekat = jg.montazni_objekat;
+                    j.tip = jg.tip;
 
-                s.SaveOrUpdate(p);
-                s.Flush();
-
-                Javna_garaza j = s.Load<Javna_garaza>(id);
-                j.br_nivoa = jg.br_nivoa;
-                j.montazni_objekat = jg.montazni_objekat;
-                j.tip = jg.tip;
-
-                s.SaveOrUpdate(j);
-                s.Flush();
+                    s.SaveOrUpdate(j);
+                    s.Flush();
+                }
+                else
+                    ObjekatNijeNadjen();
 
                 s.Close();
             }
@@ -853,13 +867,14 @@ namespace ParkingServis
             {
                 ISession s = DataLayer.GetSession();
 
-                Javna_garaza j = s.Load<Javna_garaza>(id);
-                s.Delete(j);
-                s.Flush();
-
-                Parking p = s.Load<Parking>(id);
-                s.Delete(p);
-                s.Flush();
+                if (s.Query<Javna_garaza>().Any(x => x.ID == id))
+                {
+                    Javna_garaza j = s.Load<Javna_garaza>(id);
+                    s.Delete(j);
+                    s.Flush();
+                }
+                else
+                    ObjekatNijeNadjen(id, "Javna garaza");
 
                 s.Close();
             }

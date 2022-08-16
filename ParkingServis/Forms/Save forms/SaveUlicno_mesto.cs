@@ -22,7 +22,7 @@ namespace ParkingServis.Forms.Save_forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             
-                ISession s = DataLayer.GetSession();
+                //ISession s = DataLayer.GetSession();
                 Entiteti.Ulicno_mesto um = new Entiteti.Ulicno_mesto();
                 int zona = Int32.Parse(txtZ.Text);
                 um.naziv_ulice = txtUlica.Text;

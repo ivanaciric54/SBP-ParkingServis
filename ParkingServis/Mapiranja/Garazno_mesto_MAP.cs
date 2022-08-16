@@ -8,7 +8,7 @@ using ParkingServis.Entiteti;
 
 namespace ParkingServis.Mapiranja
 {
-    class Garazno_mesto_MAP : ClassMap<ParkingServis.Entiteti.Garazno_mesto>
+    class Garazno_mesto_MAP : SubclassMap<ParkingServis.Entiteti.Garazno_mesto>
     {
         public Garazno_mesto_MAP()
         {
@@ -16,7 +16,8 @@ namespace ParkingServis.Mapiranja
             Table("GARAZNO_MESTO");
 
             //primarni kljuc
-            Id(x => x.ID, "ID").GeneratedBy.Assigned();
+            //Id(x => x.ID, "ID").GeneratedBy.Assigned();
+            KeyColumn("ID");
 
             //ostali atributi
             Map(x => x.nivo, "NIVO");

@@ -8,7 +8,6 @@ namespace ParkingServis.Entiteti
 {
     public class Ulicno_mesto : Parking_mesto
     {
-        public virtual int ID { get; set; }
         public virtual Zona zona { get; set; }
         public virtual String naziv_ulice { get; set; }
         public Ulicno_mesto() : base()

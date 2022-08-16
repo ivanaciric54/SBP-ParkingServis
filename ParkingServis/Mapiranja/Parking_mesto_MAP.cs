@@ -16,7 +16,7 @@ namespace ParkingServis.Mapiranja
             Table("PARKING_MESTO");
 
             //primarni kljuc
-            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.ID, "ID").GeneratedBy.SequenceIdentity("PARKING_MESTO_ID_SEQ");
 
             Map(x => x.zausetost, "ZAUZETOST");
 

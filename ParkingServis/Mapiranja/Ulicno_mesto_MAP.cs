@@ -8,7 +8,7 @@ using ParkingServis.Entiteti;
 
 namespace ParkingServis.Mapiranja
 {
-    class Ulicno_mesto_MAP : ClassMap<ParkingServis.Entiteti.Ulicno_mesto>
+    class Ulicno_mesto_MAP : SubclassMap<ParkingServis.Entiteti.Ulicno_mesto>
     {
         public Ulicno_mesto_MAP()
         {
@@ -16,8 +16,12 @@ namespace ParkingServis.Mapiranja
             Table("ULICNO_MESTO");
 
             //primarni kljuc
-            Id(x => x.ID, "ID").GeneratedBy.Assigned();
+            //Id(x => x.ID, "ID").GeneratedBy.Assigned();
+            KeyColumn("ID");
 
+            // Zato sto su Zona i Ulicna mesta nezavisna, kada se brise zona:
+            // 1. Dodeliti valjanu zonu svim Ulicnim mestima koja pripadaju zoni koja treba da se obrise
+            // 2. Obrisati zonu
             References(x => x.zona).Column("Zona").LazyLoad();
             Map(x => x.naziv_ulice, "NAZIV_ULICE");
         }

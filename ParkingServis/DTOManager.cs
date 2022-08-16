@@ -896,7 +896,7 @@ namespace ParkingServis
                 ISession s = DataLayer.GetSession();
                 IEnumerable<Garazno_mesto> svaGaraznaMesta = from o in s.Query<Garazno_mesto>() select o;
 
-                foreach (Garazno_mesto g in svaGaraznaMesta)
+                foreach (Garazno_mesto g in svaGaraznaMesta.ToList())
                 {
                     Parking_mesto pm = s.Load<Parking_mesto>(g.ID);
 
@@ -916,11 +916,18 @@ namespace ParkingServis
             try
             {
                 ISession s = DataLayer.GetSession();
-                Garazno_mesto gm = s.Load<Garazno_mesto>(id);
+                if (s.Query<Garazno_mesto>().Any(x => x.ID == id))
+                {
+                    Garazno_mesto gm = s.Load<Garazno_mesto>(id);
 
-                MessageBox.Show("ID: " + gm.ID + "\n" +
-                                "Nivo: " + gm.nivo + "\n" +
-                                "Redni broj: " + gm.redni_br + "\n");
+                    MessageBox.Show("ID: " + gm.ID + "\n" +
+                                    "Nivo: " + gm.nivo + "\n" +
+                                    "Zauzetost " + gm.zausetost + "\n" +
+                                    "Redni broj: " + gm.redni_br + "\n");
+                }
+                else
+                    ObjekatNijeNadjen(id, "Garazno mesto");
+                
                 s.Close();
             }
             catch (Exception ec)
@@ -934,18 +941,17 @@ namespace ParkingServis
             try
             {
                 ISession s = DataLayer.GetSession();
-                Parking p = s.Load<Parking>(park);
-
-                Parking_mesto pm = new Parking_mesto(z);
-
-                s.SaveOrUpdate(pm);
-                s.Flush();
-
-                gm.ID = pm.ID;
-                gm.id_parkinga = p;
-                s.SaveOrUpdate(gm);
-                s.Flush();
-
+                if (s.Query<Parking>().Any(x => x.ID == park))
+                {
+                    Parking p = s.Load<Parking>(park);
+                    gm.zausetost = z;
+                    p.garazna_mesta.Add(gm);
+                    s.SaveOrUpdate(p);
+                    s.Flush();
+                }
+                else
+                    ObjekatNijeNadjen(park, "Parking");
+                
                 s.Close();
             }
             catch (Exception ec)
@@ -959,20 +965,19 @@ namespace ParkingServis
             try
             {
                 ISession s = DataLayer.GetSession();
-
-                Parking_mesto pm = s.Load<Parking_mesto>(id);
-                pm.zausetost = z;
-                s.SaveOrUpdate(pm);
-                s.Flush();
-
-                Garazno_mesto gm = s.Load<Garazno_mesto>(id);
-                gm.nivo = g.nivo;
-                gm.redni_br = g.redni_br;
-                Parking p = s.Load<Parking>(park);
-                gm.id_parkinga = p;
-
-                s.SaveOrUpdate(gm);
-                s.Flush();
+                if (s.Query<Garazno_mesto>().Any(x => x.ID == id) && s.Query<Parking>().Any(x => x.ID == park))
+                {
+                    Garazno_mesto gm = s.Load<Garazno_mesto>(id);
+                    Parking p = s.Load<Parking>(park);
+                    gm.id_parkinga = p;
+                    gm.zausetost = z;
+                    gm.nivo = g.nivo;
+                    gm.redni_br = g.redni_br;
+                    s.Update(gm);
+                    s.Flush();
+                }
+                else
+                    ObjekatNijeNadjen();
 
                 s.Close();
             }
@@ -987,15 +992,15 @@ namespace ParkingServis
             try
             {
                 ISession s = DataLayer.GetSession();
-
-                Garazno_mesto gm = s.Load<Garazno_mesto>(id);
-                s.Delete(gm);
-                s.Flush();
-
-                Parking_mesto pm = s.Load<Parking_mesto>(id);
-                s.Delete(pm);
-                s.Flush();
-
+                if (s.Query<Garazno_mesto>().Any(x => x.ID == id))
+                {
+                    Garazno_mesto gm = s.Load<Garazno_mesto>(id);
+                    s.Delete(gm);
+                    s.Flush();
+                }
+                else
+                    ObjekatNijeNadjen(id, "Garazno mesto");
+                
                 s.Close();
             }
             catch (Exception ec)
@@ -1015,13 +1020,9 @@ namespace ParkingServis
             {
                 ISession s = DataLayer.GetSession();
                 IEnumerable<Ulicno_mesto> svaUlicnaMesta = from o in s.Query<Ulicno_mesto>() select o;
-
-                foreach (Ulicno_mesto u in svaUlicnaMesta)
-                {
-                    Parking_mesto pm = s.Load<Parking_mesto>(u.ID);
-
-                    ulicnamesta.Add(new UlicnoMestoPregled(u.ID, pm.zausetost, u.zona.ID, u.naziv_ulice));
-                }
+                foreach( Ulicno_mesto u in svaUlicnaMesta.ToList())
+                    ulicnamesta.Add(new UlicnoMestoPregled(u.ID, u.zausetost, u.zona.ID, u.naziv_ulice));
+               
                 s.Close();
             }
             catch (Exception ec)
@@ -1036,11 +1037,17 @@ namespace ParkingServis
             try
             {
                 ISession s = DataLayer.GetSession();
-                Ulicno_mesto gm = s.Load<Ulicno_mesto>(id);
-
-                MessageBox.Show("ID: " + gm.ID + "\n" +
-                                "Zona: " + gm.zona.ID + "\n" +
-                                "Ulica: " + gm.naziv_ulice + "\n");
+                if (s.Query<Ulicno_mesto>().Any(x => x.ID == id))
+                {
+                    Ulicno_mesto um = s.Load<Ulicno_mesto>(id);
+                    MessageBox.Show("ID: " + um.ID + "\n" +
+                               "Zona: " + um.zona.ID + "\n" +
+                               "Zauzetost: " + um.zausetost + "\n" +
+                               "Ulica: " + um.naziv_ulice + "\n");
+                }
+                else
+                    ObjekatNijeNadjen(id, "Ulicno mesto");
+               
                 s.Close();
             }
             catch (Exception ec)
@@ -1054,18 +1061,19 @@ namespace ParkingServis
             try
             {
                 ISession s = DataLayer.GetSession();
+                if (s.Query<Zona>().Any(x => x.ID == zo))
+                {
+                    Zona z = s.Load<Zona>(zo);
+                    Ulicno_mesto um = new Ulicno_mesto();
+                    um.naziv_ulice = u.naziv_ulice;
+                    //um.zausetost = u.zausetost;
+                    um.zausetost = zau;
+                    um.zona = z;
 
-                Parking_mesto pm = new Parking_mesto(zau);
-
-                Zona zona = s.Load<Zona>(zo);
-
-                s.SaveOrUpdate(pm);
-                s.Flush();
-
-                u.ID = pm.ID;
-                u.zona = zona;
-                s.SaveOrUpdate(u);
-                s.Flush();
+                    s.SaveOrUpdate(um);
+                    s.Flush();
+                } else
+                    ObjekatNijeNadjen(zo, "Zona");
 
                 s.Close();
             }
@@ -1080,19 +1088,19 @@ namespace ParkingServis
             try
             {
                 ISession s = DataLayer.GetSession();
+                if (s.Query<Ulicno_mesto>().Any(x => x.ID == id) && s.Query<Zona>().Any(x => x.ID == zo))
+                {
+                    Ulicno_mesto um = s.Load<Ulicno_mesto>(id);
+                    Zona zona = s.Load<Zona>(zo);
+                    um.zausetost = zau;
+                    um.naziv_ulice = ulica;
+                    um.zona = zona;
 
-                Ulicno_mesto um = s.Load<Ulicno_mesto>(id);
-                Parking_mesto pm = s.Load<Parking_mesto>(id);
-                pm.zausetost = zau;
-                s.SaveOrUpdate(pm);
-                s.Flush();
-
-                Zona zona = s.Load<Zona>(zo);
-                um.zona = zona;
-                um.naziv_ulice = ulica;
-
-                s.SaveOrUpdate(um);
-                s.Flush();
+                    s.SaveOrUpdate(um);
+                    s.Flush();
+                }
+                else
+                    ObjekatNijeNadjen();
 
                 s.Close();
             }
@@ -1107,14 +1115,14 @@ namespace ParkingServis
             try
             {
                 ISession s = DataLayer.GetSession();
-
-                Ulicno_mesto um = s.Load<Ulicno_mesto>(id);
-                s.Delete(um);
-                s.Flush();
-
-                Parking_mesto pm = s.Load<Parking_mesto>(id);
-                s.Delete(pm);
-                s.Flush();
+                if (s.Query<Ulicno_mesto>().Any(x => x.ID == id))
+                {
+                    Ulicno_mesto um = s.Load<Ulicno_mesto>(id);
+                    s.Delete(um);
+                    s.Flush();
+                }
+                else
+                    ObjekatNijeNadjen(id, "Ulicno mesto");
 
                 s.Close();
             }

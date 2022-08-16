@@ -1282,9 +1282,10 @@ namespace ParkingServis
                 ISession s = DataLayer.GetSession();
                 Vozilo v = s.Load<Vozilo>(id);
 
+                // Zakup ne mora rucno da se brise jer Cascade.All u Vozilo_MAP to sam radi
                 IEnumerable<Zakup> zakupi = from o in s.Query<Zakup>() where o.vozilo.ID == v.ID select o;
 
-                foreach(Zakup z in zakupi)
+                foreach (Zakup z in zakupi)
                 {
                     s.Delete(z);
                     s.Flush();
@@ -1612,6 +1613,7 @@ namespace ParkingServis
                 ISession s = DataLayer.GetSession();
                 Pretplatna p = s.Load<Pretplatna>(id);
 
+                // Odnosi_se_na_P i Zone_pretplatne ne moraju rucno da se brisu jer Cascade.All u Pretplatna_MAP to sam radi 
                 IEnumerable<Zone_pretplatne> zo = from o in s.Query<Zone_pretplatne>() where o.pretplatna_karta.ID == p.ID select o;
                 foreach(Zone_pretplatne z in zo)
                 {
